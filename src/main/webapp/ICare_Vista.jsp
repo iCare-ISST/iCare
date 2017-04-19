@@ -7,12 +7,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <title>ICare Vista principal</title>
 </head>
 <body>
+<h1> iCare </h1>
+
 <c:if test = "${not empty user}">
-hola <c:out value = "${user}" />
-<p> You can press the next link to <c:out value="${urlLinktext}" />
+<p>hola <c:out value = "${user}" /></p>
+<p> You can press the next link to 
 <a href=" <c:url value = "${url}" /> "> <c:out value = "${urlLinktext}" /></a></p>
 </c:if>
 </body>
