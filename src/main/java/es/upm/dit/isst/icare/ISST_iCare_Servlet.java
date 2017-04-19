@@ -43,14 +43,12 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();
-			int index = user.indexOf('@');
-			String userName = user.substring(0, index);
-			Patient patient = dao.readPatient(userName);
+			Patient patient = dao.readPatient(user);
 			if (patient != null) {
 				url = userService.createLogoutURL(req.getRequestURI());	
 				patients.addAll(dao.read());
 				urlLinktext = "Logout" ;
-				req.getSession().setAttribute( "user" , userName);
+				req.getSession().setAttribute( "user" , patient.getPatientname());
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 				req.getSession().setAttribute( "patients" , patients);
@@ -58,7 +56,7 @@ public class ISST_iCare_Servlet extends HttpServlet {
 				RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
 				view.forward(req,resp);
 			} else {
-				req.getSession().setAttribute( "user" , userName);
+				req.getSession().setAttribute( "user" , user);
 				RequestDispatcher view = req.getRequestDispatcher ("form.jsp");
 				view.forward(req,resp);
 			}

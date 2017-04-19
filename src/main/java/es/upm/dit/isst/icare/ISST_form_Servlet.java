@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
-import com.googlecode.objectify.ObjectifyService;
 
 import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
@@ -33,16 +32,21 @@ public class ISST_form_Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		UserService userService = UserServiceFactory.getUserService();
 		String url = userService.createLoginURL(req.getRequestURI());
-		String urlLinktext = "Login" ;
+		String urlLinktext = "Logout" ;
 		ICareDao dao = ICareDaoImpl.getInstancia();
+		
+		String email = req.getParameter("email");
 		String patientname = req.getParameter("patientname");
 		String lastname = req.getParameter("lastname");
 		String mobile = req.getParameter("mobilephone");
 		String address = req.getParameter("address");
-		dao.create(patientname, lastname, mobile, address);
+		dao.create(email, patientname, lastname, mobile, address);
+		
 		ArrayList<Patient> patients = new ArrayList<>();
 		patients.addAll(dao.read());
 		Patient patient = dao.readPatient(patientname);
+		
+		req.getSession().setAttribute( "user" , patientname );
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 		req.getSession().setAttribute( "patients" , patients);

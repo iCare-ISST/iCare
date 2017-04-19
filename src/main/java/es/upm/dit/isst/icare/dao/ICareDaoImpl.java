@@ -21,8 +21,8 @@ public class ICareDaoImpl implements ICareDao {
 	}
 
 	@Override
-	public Patient create(String patientname, String lastname, String mobilephone, String address) {
-		Patient patient = new Patient(patientname, lastname, mobilephone, address);
+	public Patient create(String email, String patientname, String lastname, String mobilephone, String address) {
+		Patient patient = new Patient(email, patientname, lastname, mobilephone, address);
 		ofy().save().entity(patient).now();
 		return patient;
 	}

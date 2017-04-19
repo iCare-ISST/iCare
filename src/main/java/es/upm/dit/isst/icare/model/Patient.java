@@ -16,8 +16,9 @@ public class Patient implements Serializable {
 	
 	//private Long Id;
 	@Id
-	private  String patientname;
+	private  String email;
 	@Index
+	private  String patientname;
 	private  String lastname;
 	private  String birthdate;
 	private  String mobilephone;
@@ -28,9 +29,10 @@ public class Patient implements Serializable {
 	
 	public Patient() {}
 
-	public Patient(String patientname, String lastname,
+	public Patient(String email, String patientname, String lastname,
 			String mobilephone, String address) {
 		super();
+		this.email = email;
 		this.patientname = patientname;
 		this.lastname = lastname;	
 		this.mobilephone = mobilephone;	
@@ -44,7 +46,7 @@ public class Patient implements Serializable {
 	private void setId(Long id) {
 		Id = id;
 	}*/
-
+	
 	public String getPatientname() {
 		return patientname;
 	}

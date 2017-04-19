@@ -8,7 +8,9 @@
 </head>
 <body>
 	<form action="/nuevoPaciente" method="post" acceptcharset="utf-8">
-		<input hidden name="patientname" value="${user}" />
+		<input hidden name="email" value="${user}" />
+		<input type="text" name="patientname" id="patientname" maxLength="255"
+			size="20" required placeholder="Nombre" />
 		<input type="text" name="lastname" id="lastname" maxLength="255"
 			size="20" required placeholder="Apellidos" />
 		<input type="text" name="mobilephone" id="mobilephone"
