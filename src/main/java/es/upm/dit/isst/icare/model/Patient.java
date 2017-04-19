@@ -14,7 +14,7 @@ public class Patient implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	private  Integer Id;
+	private Long Id;
 	@Index
 	private  String patientname;
 	private  String lastname;
@@ -36,11 +36,11 @@ public class Patient implements Serializable {
 		this.address = address;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return Id;
 	}
 
-	private void setId(Integer id) {
+	private void setId(Long id) {
 		Id = id;
 	}
 

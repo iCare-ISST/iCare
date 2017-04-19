@@ -39,24 +39,29 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		String urlLinktext = "Login" ;
 		String user = "" ;
 		ICareDao dao = ICareDaoImpl.getInstancia();
-		Patient patient = null;
 		ArrayList<Patient> patients = new ArrayList<>();
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();
 			url = userService.createLogoutURL(req.getRequestURI());	
-			patient = dao.readPatient(user);
-			patients = (ArrayList<Patient>) dao.read();
-			
+			patients.addAll(dao.read());
 			urlLinktext = "Logout" ;
+			
+			req.getSession().setAttribute( "user" , user);
+			req.getSession().setAttribute( "url" , url );
+			req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+			req.getSession().setAttribute( "patients" , patients);
+			RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
+			view.forward(req,resp);
 		}
-		req.getSession().setAttribute( "user" , user);
-		req.getSession().setAttribute( "url" , url );
-		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
-		req.getSession().setAttribute( "patient" , patient);
-		req.getSession().setAttribute( "patients" , patients);
-		RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
-		view.forward(req,resp);
+		else {
+			req.getSession().setAttribute( "user" , user);
+			req.getSession().setAttribute( "url" , url );
+			req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+			req.getSession().setAttribute( "patients" , patients);
+			RequestDispatcher view = req.getRequestDispatcher ("index.jsp");
+			view.forward(req,resp);
+		}
 	}
 	
 }
