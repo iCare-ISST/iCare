@@ -20,6 +20,14 @@
     <servlet-name>ICare</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Form</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_form_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Form</servlet-name>
+    <url-pattern>/nuevoPaciente</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

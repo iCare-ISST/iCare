@@ -13,10 +13,11 @@ public class Patient implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	//private Long Id;
 	@Id
-	private Long Id;
-	@Index
 	private  String patientname;
+	@Index
 	private  String lastname;
 	private  String birthdate;
 	private  String mobilephone;
@@ -36,13 +37,13 @@ public class Patient implements Serializable {
 		this.address = address;
 	}
 
-	public Long getId() {
+	/*public Long getId() {
 		return Id;
 	}
 
 	private void setId(Long id) {
 		Id = id;
-	}
+	}*/
 
 	public String getPatientname() {
 		return patientname;

@@ -29,7 +29,7 @@ public class ISST_iCare_Servlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-	ObjectifyService.register(Patient.class);	
+		ObjectifyService.register(Patient.class);	
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -43,18 +43,26 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();
-			url = userService.createLogoutURL(req.getRequestURI());	
-			patients.addAll(dao.read());
-			urlLinktext = "Logout" ;
-			
-			req.getSession().setAttribute( "user" , user);
-			req.getSession().setAttribute( "url" , url );
-			req.getSession().setAttribute( "urlLinktext" , urlLinktext );
-			req.getSession().setAttribute( "patients" , patients);
-			RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
-			view.forward(req,resp);
-		}
-		else {
+			int index = user.indexOf('@');
+			String userName = user.substring(0, index);
+			Patient patient = dao.readPatient(userName);
+			if (patient != null) {
+				url = userService.createLogoutURL(req.getRequestURI());	
+				patients.addAll(dao.read());
+				urlLinktext = "Logout" ;
+				req.getSession().setAttribute( "user" , userName);
+				req.getSession().setAttribute( "url" , url );
+				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+				req.getSession().setAttribute( "patients" , patients);
+				req.getSession().setAttribute( "patient" , patient);
+				RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
+				view.forward(req,resp);
+			} else {
+				req.getSession().setAttribute( "user" , userName);
+				RequestDispatcher view = req.getRequestDispatcher ("form.jsp");
+				view.forward(req,resp);
+			}
+		} else {
 			req.getSession().setAttribute( "user" , user);
 			req.getSession().setAttribute( "url" , url );
 			req.getSession().setAttribute( "urlLinktext" , urlLinktext );

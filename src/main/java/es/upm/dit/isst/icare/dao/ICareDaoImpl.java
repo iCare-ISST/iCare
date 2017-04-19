@@ -15,9 +15,9 @@ public class ICareDaoImpl implements ICareDao {
 	private ICareDaoImpl () {}
 	
 	public static ICareDaoImpl getInstancia () {
-	if ( instancia == null)
-	instancia = new ICareDaoImpl ();
-	return instancia;
+		if ( instancia == null)
+			instancia = new ICareDaoImpl ();
+		return instancia;
 	}
 
 	@Override
