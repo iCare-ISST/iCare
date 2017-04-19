@@ -7,13 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <title>Login</title>
 </head>
 <body>
 <h1> Bienvenido a Icare </h1>
 <p> Identifíquese para usar icare </p>
 <c:if test = "${empty user}">
-<p> You can press the next link to <c:out value="${urlLinktext}" />
+<p> You can press the next link to 
 <a href=" <c:url value = "${url}" /> "> <c:out value = "${urlLinktext}" /></a></p>
 </c:if>
 </body>
