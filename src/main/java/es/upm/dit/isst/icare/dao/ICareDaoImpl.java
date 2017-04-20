@@ -5,6 +5,7 @@ import java.util.List;
 import com.googlecode.objectify.Key;
 
 import es.upm.dit.isst.icare.model.Aviso;
+import es.upm.dit.isst.icare.model.MedicalData;
 import es.upm.dit.isst.icare.model.Patient;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
@@ -94,6 +95,44 @@ public class ICareDaoImpl implements ICareDao {
 	public void deleteAvisoById (Long id) {
 		Aviso aviso = this.readAviso(id);
 		this.deleteAviso(aviso);
+	}
+
+	//MedicalData
+	
+	@Override
+	public MedicalData createMedicalData(String email, String alergias, String cardiopatias, String cardiovasculares,
+			String mentales, String gruposanguineo, String medicacion, String invalidez, String otrasafecciones,
+			String sobrepeso) {
+	
+		MedicalData medicaldata = new MedicalData(email,alergias, cardiopatias, cardiovasculares,
+				mentales, gruposanguineo, medicacion,invalidez, otrasafecciones, sobrepeso);
+		ofy().save().entity(medicaldata).now();
+		return medicaldata;
+	}
+
+	@Override
+	public MedicalData readMedicalData(String email) {
+		MedicalData medicaldata = ofy().load().type(MedicalData.class).filterKey(Key.create(MedicalData.class, email)).first().now();
+		return medicaldata;
+	}
+
+	@Override
+	public void updateMedicalData(MedicalData medicaldata) {
+		ofy().save().entity(medicaldata).now();
+		
+	}
+
+	@Override
+	public void deleteMedicalData(MedicalData medicaldata) {
+		ofy().delete().entity(medicaldata).now();
+		
+	}
+
+	@Override
+	public void deleteMedicalDataByEmail(String email) {
+		MedicalData medicaldata = this.readMedicalData(email);
+		this.deleteMedicalData(medicaldata);;
+		
 	}
 
 }

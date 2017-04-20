@@ -15,36 +15,36 @@
 
 <p>
   <b>Nombre de Paciente:</b>
-  <c:out value = "${patientname}" />
+  <c:out value = "${patient.patientname}" />
 </p>
 
 <p>
   <b>Apellidos:</b>
-  <c:out value = "${lastname}" />
+  <c:out value = "${patient.lastname}" />
 </p>
 <p>
   <b>Fecha de Nacimiento:</b>
-  <c:out value = "${birthdate}" />
+  <c:out value = "${patient.birthdate}" />
 </p>
 <p>
   <b>Teléfono Móvil:</b>
-  <c:out value = "${mobilephone}" />
+  <c:out value = "${patient.mobilephone}" />
 </p>
 <p>
   <b>Teléfono Fijo:</b>
-   <c:out value = "${landlinephone}" /> 
+   <c:out value = "${patient.landlinephone}" /> 
 </p>
 <p>
   <b>Dirección:</b>
-  <c:out value = "${adress}" />
+  <c:out value = "${patient.address}" />
 </p>
 <p>
   <b>Localidad:</b>
-  <c:out value = "${location}" />
+  <c:out value = "${patient.location}" />
 </p>
 <p>
   <b>Provincia:</b>
-  <c:out value = "${province}" /> 
+  <c:out value = "${patient.province}" /> 
 </p>
 
 <p>
@@ -66,29 +66,31 @@
     <label for="tab-2" class="tab-label-2">Personas de Contacto</label>
                            
     <div class="content">
-        <div class="content-1"><%-- 
-          <% if (patient.MedicalDatum) { %> 
-          <p>Alergias = <%= patient.MedicalDatum.alergias %></p>
-          <p>Cardiopatías = <%= patient.MedicalDatum.cardiopatias %></p>
-          <p>Problemas Cardiovasculares = <%= patient.MedicalDatum.cardiovasculares %></p>
-          <p>Problemas Mentales = <%= patient.MedicalDatum.mentales %></p>
-          <p>Grupo Sanguíneo = <%= patient.MedicalDatum.gruposanguineo %></p>
-          <p>Medicación = <%= patient.MedicalDatum.medicacion %></p>
-          <p>Otras Infecciones = <%= patient.MedicalDatum.otrasafecciones %></p>
-          <p>Peso (kg) = <%= patient.MedicalDatum.peso %></p>
-          <p>Invalidez o problemas de movilidad: = <%= patient.MedicalDatum.invalidez %></p>
-          <p>
+        <div class="content-1">
+        <h3>Datos Médicos:</h3>
+          <c:if test = "${not empty medicaldata}"> 
+	          <p>Alergias: <c:out value = "${medicaldata.alergias}" /> </p>
+	          <p>Cardiopatías: <c:out value = "${medicaldata.cardiopatias}" /> </p>
+	          <p>Problemas Cardiovasculares: <c:out value = "${medicaldata.cardiovasculares}" /> </p>
+	          <p>Problemas Mentales: <c:out value = "${medicaldata.mentales}" /> </p>
+	          <p>Grupo Sanguíneo: <c:out value = "${medicaldata.gruposanguineo}" /> </p>
+	          <p>Medicación: <c:out value = "${medicaldata.medicacion}" /> </p>
+	          <p>Otras Afecciones: <c:out value = "${medicaldata.otrasafecciones}" /> </p>
+	          <p>Sobrepeso: <c:out value = "${medicaldata.sobrepeso}" /> </p>
+	          <p>Invalidez o problemas de movilidad:  <c:out value = "${medicaldata.invalidez}" /></p>
+	          <p>
             <a href="#"> 
               <button type="button"> Editar Datos </button>
             </a>
           </p>
-          <% } else { %>
+          </c:if>
+          <c:if test = "${empty medicaldata}">
           <p>
-            <a href#"> 
+            <a href="/nuevosdatosmedicos"> 
               <button type="button"> Añadir nuevos Datos Médicos </button>
             </a>
           </p>      
-          <% } %> --%>
+          </c:if>
         </div>
         <div class="content-2">
           <h3>Familiares:</h3>

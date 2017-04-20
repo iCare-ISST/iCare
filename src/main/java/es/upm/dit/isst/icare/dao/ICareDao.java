@@ -4,6 +4,7 @@ import java.util.List;
 
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
+import es.upm.dit.isst.icare.model.MedicalData;
 
 public interface ICareDao {
 	// Pacientes
@@ -22,4 +23,12 @@ public interface ICareDao {
 	public void updateAviso (Aviso aviso);
 	public void deleteAviso (Aviso aviso);
 	public void deleteAvisoById (Long id);
+	
+	// Datos Médicos
+	public MedicalData createMedicalData (String email, String alergias, String cardiopatias, String cardiovasculares, String mentales,
+			String gruposanguineo, String medicación, String invalidez, String otrasafecciones, String sobrepeso);
+	public MedicalData readMedicalData (String email);
+	public void updateMedicalData (MedicalData medicaldata);
+	public void deleteMedicalData (MedicalData medicaldata);
+	public void deleteMedicalDataByEmail (String email);
 }

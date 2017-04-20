@@ -16,6 +16,7 @@ import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
+import es.upm.dit.isst.icare.model.MedicalData;
 
 public class Show_Patient_Servlet extends HttpServlet {
 	/**
@@ -29,6 +30,7 @@ public class Show_Patient_Servlet extends HttpServlet {
 	public void init() throws ServletException {
 		ObjectifyService.register(Patient.class);	
 		ObjectifyService.register(Aviso.class);
+		ObjectifyService.register(MedicalData.class);
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -41,15 +43,13 @@ public class Show_Patient_Servlet extends HttpServlet {
 		String email = req.getParameter("email");
 		
 		Patient patient = dao.readPatient(email);
-		
-		req.getSession().setAttribute( "patientname" , patient.getPatientname());
-		req.getSession().setAttribute( "lastname" , patient.getLastname());
-		req.getSession().setAttribute( "birthdate" , patient.getBirthdate());
-		req.getSession().setAttribute( "mobilephone" , patient.getMobilephone());
-		req.getSession().setAttribute( "landlinephone" , patient.getLandlinephone());
-		req.getSession().setAttribute( "adress" , patient.getAddress());
-		req.getSession().setAttribute( "location" , patient.getLocation());
-		req.getSession().setAttribute( "province" , patient.getProvince());
+		MedicalData medicaldata = dao.readMedicalData(email);
+		if (patient != null){
+			req.getSession().setAttribute( "patient" , patient);
+		}
+		if (medicaldata != null){
+			req.getSession().setAttribute( "medicaldata" , medicaldata);
+		}
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 
