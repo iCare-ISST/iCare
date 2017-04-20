@@ -8,3 +8,7 @@ body { background-color: #729fcf; }
 h1 { text-align: center; color: #555753; padding: 0.5em; font-size: 1.5em; }
 
 p {text-align: center;}
+
+form {text-align: center;}
+
+footer { clear: both; background-color: #204a87; text-align: right;}

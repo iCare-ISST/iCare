@@ -4,21 +4,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <title>Formulario</title>
 </head>
 <body>
+<h1> Formulario de inscripcion</h1>
+<p>Por favor rellene sus datos para darse de alta como usuario:</p><br>
 	<form action="/nuevoPaciente" method="post" acceptcharset="utf-8">
-		<input hidden name="email" value="${user}" />
-		<input type="text" name="patientname" id="patientname" maxLength="255"
-			size="20" required placeholder="Nombre" />
-		<input type="text" name="lastname" id="lastname" maxLength="255"
-			size="20" required placeholder="Apellidos" />
-		<input type="text" name="mobilephone" id="mobilephone"
-			maxLength="255" required size="20" placeholder="Móvil" />
-		<input type="text" name="address" id="address"
-			maxLength="255" required size="20" placeholder="Dirección" />
-		<input type="submit" value="Send" />
+		<p><input hidden name="email" value="${user}" /></p><br>
+		<p><input type="text" name="patientname" id="patientname" maxLength="255"
+			size="20" required placeholder="Nombre" /></p><br>
+		<p><input type="text" name="lastname" id="lastname" maxLength="255"
+			size="20" required placeholder="Apellidos" /></p><br>
+		<p><input type="text" name="mobilephone" id="mobilephone"
+			maxLength="255" required size="20" placeholder="Móvil" /></p><br>
+		<p><input type="text" name="address" id="address"
+			maxLength="255" required size="20" placeholder="Dirección" /></p><br>
+		<p><input type="submit" value="Send" /></p><br>
 	</form>
-
 </body>
+
+<footer>
+
+<br>
+<b>Fecha</b> (
+<script type="text/javascript">
+var f = new Date();
+document.write(f.getDate());
+document.write("/");
+document.write(f.getMonth() + 1);
+document.write("/");
+document.write(f.getFullYear());
+</script>) <br>
+<b>Hora</b> (
+<script type="text/javascript">
+var d = new Date();
+document.write(d.getHours());
+document.write(":");
+document.write(d.getMinutes());
+</script>)
+</footer>
 </html>
