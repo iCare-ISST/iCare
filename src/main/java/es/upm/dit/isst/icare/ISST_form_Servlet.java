@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.googlecode.objectify.ObjectifyService;
 
 import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
+import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
 
 public class ISST_form_Servlet extends HttpServlet {
@@ -26,6 +28,8 @@ public class ISST_form_Servlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
+		ObjectifyService.register(Patient.class);	
+		ObjectifyService.register(Aviso.class);
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -40,11 +44,10 @@ public class ISST_form_Servlet extends HttpServlet {
 		String lastname = req.getParameter("lastname");
 		String mobile = req.getParameter("mobilephone");
 		String address = req.getParameter("address");
-		dao.create(email, patientname, lastname, mobile, address);
+		Patient patient = dao.createPatient(email, patientname, lastname, mobile, address);
 		
 		ArrayList<Patient> patients = new ArrayList<>();
-		patients.addAll(dao.read());
-		Patient patient = dao.readPatient(patientname);
+		patients.addAll(dao.readPatients());
 		
 		req.getSession().setAttribute( "user" , patientname );
 		req.getSession().setAttribute( "url" , url );
