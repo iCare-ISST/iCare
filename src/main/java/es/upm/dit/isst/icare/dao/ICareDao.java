@@ -7,7 +7,8 @@ import es.upm.dit.isst.icare.model.Patient;
 
 public interface ICareDao {
 	// Pacientes
-	public Patient createPatient (String email, String patientname, String lastname, String mobilephone, String address);
+	public Patient createPatient (String email, String patientname, String lastname, String birthdate,
+			String mobilephone, String landlinephone, String address, String location, String province);
 	public Patient readPatient (String email);
 	public List<Patient> readPatients ();
 	public void updatePatient (Patient patient);

@@ -19,32 +19,32 @@
 </p>
 
 <p>
-  <b>Apellidos</b>
+  <b>Apellidos:</b>
   <c:out value = "${lastname}" />
 </p>
 <p>
-  <b>Fecha de Nacimiento</b>
+  <b>Fecha de Nacimiento:</b>
   <c:out value = "${birthdate}" />
 </p>
 <p>
-  <b>Teléfono Móvil</b>
+  <b>Teléfono Móvil:</b>
   <c:out value = "${mobilephone}" />
 </p>
 <p>
-  <b>Teléfono Fijo</b>
-<%--   <c:out value = "${mobilephone}" /> --%>
+  <b>Teléfono Fijo:</b>
+   <c:out value = "${landlinephone}" /> 
 </p>
 <p>
-  <b>Dirección</b>
+  <b>Dirección:</b>
   <c:out value = "${adress}" />
 </p>
 <p>
-  <b>Localidad</b>
+  <b>Localidad:</b>
   <c:out value = "${location}" />
 </p>
 <p>
-  <b>Provincia</b>
-<%--   <c:out value = "${mobilephone}" /> --%>
+  <b>Provincia:</b>
+  <c:out value = "${province}" /> 
 </p>
 
 <p>

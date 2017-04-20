@@ -46,8 +46,10 @@ public class Show_Patient_Servlet extends HttpServlet {
 		req.getSession().setAttribute( "lastname" , patient.getLastname());
 		req.getSession().setAttribute( "birthdate" , patient.getBirthdate());
 		req.getSession().setAttribute( "mobilephone" , patient.getMobilephone());
+		req.getSession().setAttribute( "landlinephone" , patient.getLandlinephone());
 		req.getSession().setAttribute( "adress" , patient.getAddress());
 		req.getSession().setAttribute( "location" , patient.getLocation());
+		req.getSession().setAttribute( "province" , patient.getProvince());
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 

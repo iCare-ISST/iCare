@@ -14,21 +14,43 @@
 <h1> iCare </h1>
 
 <c:if test = "${not empty user}">
-	<p>hola <c:out value = "${user}" /></p>
+	<p>Bienvenido <c:out value = "${user}" /></p>
 		<c:if test = "${not empty patients}">
-			<p> Pacientes:</p>
-			<br>
-			<c:forEach items = "${patients}" var = "patienti">
+				<div id="patientList">
+					<h2> Pacientes </h2>
 					<form action="/verPaciente" method="post" acceptcharset="utf-8">
-						<td><c:out value = "${patienti.patientname}" /></td>
-						<td><input hidden name="email" value="${patienti.email}" /></td><br>
-						<td><input type="submit" value="Ver" /></td><br>
+						<table>
+  							<thead>
+    							<tr>
+	      							<th>Nombre</th>
+	      							<th>Apellidos</th>
+	      							<th>Acción</th>
+    							</tr>
+  							</thead>
+ 							<tbody>
+								<c:forEach items = "${patients}" var = "patienti">		
+									<tr>		
+										<td><c:out value = "${patienti.patientname}" /></td>
+										<td><c:out value = "${patienti.lastname}" /> </td>
+										<input hidden name="email" value="${patienti.email}" />
+										<td><input type="submit" value="Ver" /></td>	
+									</tr>
+								</c:forEach>
+								</tr>
+					  		</tbody>
+						</table>
 					</form>
-						
-			</c:forEach>
+					
+					<footer>
+					  <nav> 
+					      <a href="/nuevoPaciente" > <button type="button">
+					           Añadir Paciente
+					           </button>
+					      </a> 
+					  </nav>
+					</footer>
+				</div>
 		</c:if>
-		<br>
-		Incluir Nuevo Paciente
 <br>
 <br>
 <br>

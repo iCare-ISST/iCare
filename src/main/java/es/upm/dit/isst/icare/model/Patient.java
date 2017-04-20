@@ -33,14 +33,18 @@ public class Patient implements Serializable {
 	
 	public Patient() {}
 
-	public Patient(String email, String patientname, String lastname,
-			String mobilephone, String address) {
+	public Patient(String email, String patientname, String lastname, String birthdate,
+			String mobilephone, String landlinephone, String address, String location, String province) {
 		super();
 		this.email = email;
 		this.patientname = patientname;
-		this.lastname = lastname;	
+		this.lastname = lastname;
+		this.birthdate = birthdate;
 		this.mobilephone = mobilephone;	
+		this.landlinephone = landlinephone;
 		this.address = address;
+		this.location = location;
+		this.province = province;
 	}
 
 	/*public Long getId() {

@@ -16,10 +16,18 @@
 			size="20" required placeholder="Nombre" /></p><br>
 		<p><input type="text" name="lastname" id="lastname" maxLength="255"
 			size="20" required placeholder="Apellidos" /></p><br>
+		<p><input type="text" name="birthdate" id="birthdate" maxLength="255"
+			size="20" required placeholder="Fecha de nacimiento" /></p><br>
 		<p><input type="text" name="mobilephone" id="mobilephone"
 			maxLength="255" required size="20" placeholder="Móvil" /></p><br>
+		<p><input type="text" name="landlinephone" id="landlinephone"
+			maxLength="255" required size="20" placeholder="Teléfono fijo" /></p><br>
 		<p><input type="text" name="address" id="address"
 			maxLength="255" required size="20" placeholder="Dirección" /></p><br>
+		<p><input type="text" name="location" id="location"
+			maxLength="255" required size="20" placeholder="Localidad" /></p><br>
+		<p><input type="text" name="province" id="province"
+			maxLength="255" required size="20" placeholder="Provincia" /></p><br>
 		<p><input type="submit" value="Send" /></p><br>
 	</form>
 </body>

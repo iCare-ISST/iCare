@@ -32,6 +32,35 @@ public class ISST_form_Servlet extends HttpServlet {
 		ObjectifyService.register(Aviso.class);
 	}
 
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		UserService userService = UserServiceFactory.getUserService();
+		String url = userService.createLoginURL(req.getRequestURI());
+		String urlLinktext = "Login" ;
+		String user = "" ;
+		ICareDao dao = ICareDaoImpl.getInstancia();
+		
+		if ( req.getUserPrincipal () != null ){
+			user = req.getUserPrincipal().getName();
+			Patient patient = dao.readPatient(user);
+				url = userService.createLogoutURL(req.getRequestURI());	
+				urlLinktext = "Logout" ;
+				req.getSession().setAttribute( "user" , patient.getPatientname());
+				req.getSession().setAttribute( "url" , url );
+				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+
+				RequestDispatcher view = req.getRequestDispatcher ("form.jsp");
+				view.forward(req,resp);
+		} else {
+			req.getSession().setAttribute( "user" , user);
+			req.getSession().setAttribute( "url" , url );
+			req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+			RequestDispatcher view = req.getRequestDispatcher ("index.jsp");
+			view.forward(req,resp);
+		}
+		
+	}
+	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		UserService userService = UserServiceFactory.getUserService();
@@ -42,9 +71,13 @@ public class ISST_form_Servlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String patientname = req.getParameter("patientname");
 		String lastname = req.getParameter("lastname");
+		String birthdate = req.getParameter("birthdate");
 		String mobile = req.getParameter("mobilephone");
+		String landlinephone = req.getParameter("landlinephone");
 		String address = req.getParameter("address");
-		Patient patient = dao.createPatient(email, patientname, lastname, mobile, address);
+		String location = req.getParameter("location");
+		String province = req.getParameter("province");
+		Patient patient = dao.createPatient(email, patientname, lastname, birthdate, mobile, landlinephone, address, location, province);
 		
 		ArrayList<Patient> patients = new ArrayList<>();
 		patients.addAll(dao.readPatients());
