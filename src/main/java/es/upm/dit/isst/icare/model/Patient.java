@@ -51,6 +51,14 @@ public class Patient implements Serializable {
 		Id = id;
 	}*/
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getPatientname() {
 		return patientname;
 	}

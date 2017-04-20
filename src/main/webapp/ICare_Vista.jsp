@@ -19,18 +19,15 @@
 			<p> Pacientes:</p>
 			<br>
 			<c:forEach items = "${patients}" var = "patienti">
-				<table>
-					<tr>
+					<form action="/verPaciente" method="post" acceptcharset="utf-8">
 						<td><c:out value = "${patienti.patientname}" /></td>
-						<td><c:out value = "${patienti.lastname}" /></td>
-						<td><c:out value = "${patienti.birthdate}" /></td>
-						<td><c:out value = "${patienti.mobilephone}" /></td>
-						<td><c:out value = "${patienti.address}" /></td>
-						<td><c:out value = "${patienti.location}" /></td>
-					</tr>
-				</table>
+						<td><input hidden name="email" value="${patienti.email}" /></td><br>
+						<td><input type="submit" value="Ver" /></td><br>
+					</form>
+						
 			</c:forEach>
 		</c:if>
+		<br>
 		Incluir Nuevo Paciente
 <br>
 <br>

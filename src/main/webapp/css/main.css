@@ -12,3 +12,460 @@ p {text-align: center;}
 form {text-align: center;}
 
 footer { clear: both; background-color: #204a87; text-align: right;}
+
+/* ---------- FONTAWESOME ---------- */
+/* ---------- http://fortawesome.github.com/Font-Awesome/ ---------- */
+/* ---------- http://weloveiconfonts.com/ ---------- */
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* ---------- FONTAWESOME ---------- */
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+* {margin: 0; padding: 0; }
+body {
+  font: 16px Georgia, serif;
+  color: white;
+  }
+.page {
+  margin: 2% auto;
+  color:white;
+}
+.main {
+  border: 1px solid #999;
+  padding: 1%;
+  margin-bottom: 1px;
+  color: black;
+  background: #eee;
+}
+
+.right {float:right;}
+
+a {
+  color: #00B7FF;
+}
+
+section > div {pading: 20px;}
+
+header { 
+  text-align: center;
+  background-color: blue;
+}
+
+#iCareService {
+  color:#0066ff;
+}
+
+nav { 
+  text-align: center;
+  }
+section { text-align: left;}
+footer { text-align: center;}
+nav a { margin: 0px 10px 0px 0px;}
+
+.stars {
+  float: left;
+  clear: both;  
+}
+
+#welcome {
+  color:#0066ff;
+}
+
+#flashinfo {
+  width: 450px;
+  border: 2px solid blue;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  color: #000; 
+}
+
+#flashinfo h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #00c;
+}
+
+#flashinfo ul li {
+    margin: 5px 5px 5px 15px;
+    font-size: 12px;
+    list-style: square; 
+}
+
+
+#flashsuccess {
+  width: 450px;
+  border: 2px solid green;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  color: #000; 
+}
+
+#flashsuccess h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #0c0;
+}
+
+#flashsuccess ul li {
+    margin: 5px 5px 5px 15px;
+    font-size: 12px;
+    list-style: square; 
+}
+
+#flasherror {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  color: #000; 
+}
+
+#flasherror h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+}
+
+#flasherror ul li {
+    margin: 5px 5px 5px 15px;
+    font-size: 12px;
+    list-style: square;
+}
+#contenedor {
+    margin: 40px auto;
+    width: 750px;  /* Ancho del contenedor */
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+#contenedor input {
+height: 32px;
+visibility: hidden;
+}
+
+#contenedor label {
+float: left;
+cursor: pointer;
+font-size: 15px;  /* Tamaño del texto de las pestañas */
+line-height: 40px;
+height: 40px;
+padding: 0 20px;
+display: block;
+color: #888;  /* Color del texto de las pestañas */
+text-align: center;
+border-radius: 5px 5px 0 0;
+background: #eee;  /* Fondo de las pestañas */
+margin-right: 5px;
+}
+
+#contenedor input:hover + label {
+background: #ddd;  /* Fondo de las pestañas al pasar el cursor por encima */
+color: #666;  /* Color del texto de las pestañas al pasar el cursor por encima */
+}
+
+#contenedor input:checked + label {
+background: #FFDA91;  /* Fondo de las pestañas al presionar */
+color: #444; /* Color de las pestañas al presionar */
+z-index: 6;
+line-height: 45px;
+height: 45px;
+position: relative;
+top: -5px;
+-webkit-transition: .1s;
+-moz-transition: .1s;
+-o-transition: .1s;
+-ms-transition: .1s;
+}
+
+.content {
+background: #FFDA91;  /* Fondo del contenido */
+position: relative;
+width: 100%;
+height: 350px;  /* Alto del contenido */
+padding: 30px;
+z-index: 5;
+border-radius: 0 5px 5px 5px;
+}
+
+.content div {
+position: absolute;
+z-index: -100;
+opacity: 0;
+transition: all linear 0.1s;
+}
+
+#contenedor input.tab-selector-1:checked ~ .content .content-1,
+#contenedor input.tab-selector-2:checked ~ .content .content-2,
+#contenedor input.tab-selector-3:checked ~ .content .content-3,
+#contenedor input.tab-selector-4:checked ~ .content .content-4 {
+    z-index: 100;
+    opacity: 1;
+    -webkit-transition: all ease-out 0.2s 0.1s;
+-moz-transition: all ease-out 0.2s 0.1s;
+-o-transition: all ease-out 0.2s 0.1s;
+-ms-transition: all ease-out 0.2s 0.1s;
+}
+
+
+
+* ---------- LOGIN ---------- */
+
+#login {
+  margin: 50px auto;
+  width: 400px;
+}
+
+#login h2 {
+  background-color: #f95252;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  font-size: 28px;
+  padding: 20px 26px;
+  text-align: center;
+}
+
+#login h2 span[class*="fontawesome-"] {
+  margin-right: 14px;
+}
+
+#login fieldset {
+  background-color: #fff;
+  -webkit-border-radius: 0 0 20px 20px;
+  -moz-border-radius: 0 0 20px 20px;
+  border-radius: 0 0 20px 20px;
+  padding: 20px 26px;
+}
+
+#login fieldset p {
+  color: #777;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+#login fieldset p:last-child {
+  margin-bottom: 0;
+}
+
+#login fieldset input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#login fieldset input[type="text"], #login fieldset input[type="password"] {
+  background-color: #eee;
+  color: #777;
+  padding: 4px 10px;
+  width: 328px;
+}
+
+#login fieldset input[type="submit"] {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 100px;
+}
+
+#login fieldset input[type="submit"]:hover {
+  background-color: #28ad63;
+}
+
+* ---------- LISTA PACIENTES ---------- */
+#patientList {
+  margin:50px auto;
+  width: 400px;
+}
+#patientList h2 {
+  background-color: #0066ff;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+#patientList table th {
+  font-size: 20px;
+  background-color:#8080ff;
+  color:#fff;
+  height:20px;
+  padding-left: 90px;
+  padding-right: 90px;
+  text-align: center;
+}
+
+#patientList table #blank {
+  background-color: #eee;
+}
+
+#patientList table tbody tr td button {
+  background-color: #ffcc00;
+  color: #fff;
+  margin: 0 auto;
+  padding: 4px 0;
+  width:50px;
+  height:30px;
+}
+#patientList footer nav button {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 200px;
+}
+
+* ---------- LISTA FAMILIARES --------- */
+#relativeList {
+  margin:50px auto;
+  width: 400px;
+}
+#relativeList h2 {
+  background-color: #0066ff;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+#relativeList table th {
+  font-size: 20px;
+  background-color:#8080ff;
+  color:#fff;
+  height:20px;
+  padding-left: 90px;
+  padding-right: 90px;
+  text-align: center;
+}
+
+#relativeList table #blank {
+  background-color: #eee;
+}
+
+#relativeList table tbody tr td button {
+  background-color: #ffcc00;
+  color: #fff;
+  margin: 0 auto;
+  padding: 4px 0;
+  width:50px;
+  height:30px;
+}
+#relativeList footer nav button {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 200px;
+}
+
+* ---------- LISTA DE USUARIOS ----------- */
+#ruserList {
+  margin:50px auto;
+  width: 400px;
+}
+#userList h2 {
+  background-color: #0066ff;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+#userList table th {
+  font-size: 20px;
+  background-color:#8080ff;
+  color:#fff;
+  height:20px;
+  padding-left: 90px;
+  padding-right: 90px;
+  text-align: center;
+}
+
+#userList table #blank {
+  background-color: #eee;
+}
+
+#userList table tbody tr td button {
+  background-color: #ffcc00;
+  color: #fff;
+  margin: 0 auto;
+  padding: 4px 0;
+  width:50px;
+  height:30px;
+}
+#userList footer nav button {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 200px;
+}
+
+* ---------- NUEVO PACIENTE Y NUEVO FAMILIAR ----------- */
+
+#newPatient, #newRelative {
+  margin:50px auto;
+  width: 400px;
+}
+
+#newPatient #title, #newRelative #title {
+  background-color: #0066ff;
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px 10px;
+}
+
+.newPatientContainer .rem, .newRelativeContainer .rem{
+  font-size: 15px;
+}
+
+.newPatientContainer input, .newRelativeContainer input {
+  height: 25px;
+}
+
+#save input[type="submit"], #cancel button {
+  background-color: #33cc77;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 100px;
+  }
+}
