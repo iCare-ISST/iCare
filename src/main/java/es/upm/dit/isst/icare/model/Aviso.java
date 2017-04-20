@@ -17,7 +17,7 @@ public class Aviso implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static long idComun = 0;
-	ICareDao dao = ICareDaoImpl.getInstancia();
+	//ICareDao dao = ICareDaoImpl.getInstancia();
 	
 	@Id
 	private long id;
@@ -52,7 +52,7 @@ public class Aviso implements Serializable {
 	
 	public void setPatientEmail(String patientEmail) {
 		this.patientEmail = patientEmail;
-		dao.updateAviso(this);
+		//dao.updateAviso(this);
 	}
 	
 	public String getPatientEmail() {
@@ -61,7 +61,7 @@ public class Aviso implements Serializable {
 	
 	public void setCriticidad(String criticidad) {
 		this.criticidad = criticidad;
-		dao.updateAviso(this);
+		//dao.updateAviso(this);
 	}
 	
 	public String getCriticidad() {
@@ -70,7 +70,7 @@ public class Aviso implements Serializable {
 	
 	public void setDescription(String description) {
 		this.description = description;
-		dao.updateAviso(this);
+		//dao.updateAviso(this);
 	}
 	
 	public String getDescription() {
