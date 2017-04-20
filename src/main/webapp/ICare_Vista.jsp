@@ -14,8 +14,28 @@
 <h1> iCare </h1>
 
 <c:if test = "${not empty user}">
-<p>hola <c:out value = "${user}" /></p>
-<p> You can press the next link to 
+	<p>hola <c:out value = "${user}" /></p>
+		<c:if test = "${not empty patients}">
+			<p> Pacientes:</p>
+			<br>
+			<c:forEach items = "${patients}" var = "patienti">
+				<table>
+					<tr>
+						<td><c:out value = "${patienti.patientname}" /></td>
+						<td><c:out value = "${patienti.lastname}" /></td>
+						<td><c:out value = "${patienti.birthdate}" /></td>
+						<td><c:out value = "${patienti.mobilephone}" /></td>
+						<td><c:out value = "${patienti.address}" /></td>
+						<td><c:out value = "${patienti.location}" /></td>
+					</tr>
+				</table>
+			</c:forEach>
+		</c:if>
+		Incluir Nuevo Paciente
+<br>
+<br>
+<br>
+<p> Desconexión
 <a href=" <c:url value = "${url}" /> "> <c:out value = "${urlLinktext}" /></a></p>
 </c:if>
 </body>
