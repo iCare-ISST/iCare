@@ -51,12 +51,10 @@
   <a href="#"> 
     <button type="button"> Editar </button>
   </a>  
-  <a href="#"> 
-    <button type="button"
-            onClick="return confirm('Borrar cuenta: <c:out value = "${patientname}" />');">
-       Borrar 
-    </button>
-  </a>
+  <form method="post" action="/borrarPaciente" accept-charset="utf-8">
+  	<input type="hidden" name="email" value="${patient.email}"/>
+  	<input type="submit" value="Borrar"/>
+  </form>
 </p>
 <div id="contenedor">
     <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />

@@ -32,6 +32,10 @@
     <servlet-name>ShowPatient</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.Show_Patient_Servlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeletePatient</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.Delete_Patient_Servlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ShowPatient</servlet-name>
     <url-pattern>/verPaciente</url-pattern>
@@ -51,6 +55,10 @@
   <servlet-mapping>
     <servlet-name>NewRelative</servlet-name>
     <url-pattern>/nuevocuidador</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePatient</servlet-name>
+    <url-pattern>/borrarPaciente</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
