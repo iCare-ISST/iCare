@@ -94,29 +94,27 @@
         </div>
         <div class="content-2">
           <h3>Familiares:</h3>
-<%--           <% if (patient.Relatives.length !== 0) { %>
-              <% for(var i in patient.Relatives) { %>
-                <p>Nombre:<%= patient.Relatives[i].name %> </p>
-                <p>Apellidos:<%= patient.Relatives[i].lastname %> </p>
-                <p>Teléfono Móvil: <%= patient.Relatives[i].mobilephone %> </p>
-                <p>Teléfono Fijo: <%= patient.Relatives[i].landlinephone %> </p>
-                <a href="/relatives/<%= patient.Relatives[i].id %>"> 
-                  <button type="button"> Ver más Información de Contacto </button>
-                </a>
-                <a href="/relatives/<%= patient.Relatives[i].id %>/edit"> 
-                  <button type="button"> Editar Datos de Contacto </button>
-                </a>
-              <% } %>  
-          <% } else { %>
-              <p>
-              <a href="#"> 
-                <button type="button"> Añadir Nuevas Personas de Contacto </button>
-              </a>
-              <a href="#"> 
-                <button type="button"> Asignar Personas de Contacto </button>
-              </a>
-              </p>      
-          <% } %> --%>
+		  <c:if test = "${not empty relative}"> 
+	          <p>Nombre: <c:out value = "${relative.relativename}" /> </p>
+	          <p>Apellidos: <c:out value = "${relative.lastname}" /> </p>
+	          <p>Teléfono Móvil: <c:out value = "${relative.mobilephone}" /> </p>
+	          <p>Teléfono Fijo: <c:out value = "${relative.landlinephone}" /> </p>
+	          <p>Dirección: <c:out value = "${relative.address}" /> </p>
+	          <p>Localidad: <c:out value = "${relative.location}" /> </p>
+	          <p>Provincia: <c:out value = "${relative.province}" /> </p>
+	          <p>
+            <a href="#"> 
+              <button type="button"> Editar Datos </button>
+            </a>
+          </p>
+          </c:if>
+          <c:if test = "${empty relative}">
+          <p>
+            <a href="/nuevocuidador"> 
+              <button type="button"> Añadir datos de cuidador </button>
+            </a>
+          </p>      
+          </c:if>
         </div>
     </div>
 </div>

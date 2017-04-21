@@ -7,6 +7,7 @@ import com.googlecode.objectify.Key;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.MedicalData;
 import es.upm.dit.isst.icare.model.Patient;
+import es.upm.dit.isst.icare.model.Relative;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -133,6 +134,45 @@ public class ICareDaoImpl implements ICareDao {
 		MedicalData medicaldata = this.readMedicalData(email);
 		this.deleteMedicalData(medicaldata);;
 		
+	}
+	
+	// Relatives
+
+	@Override
+	public Relative createRelative(String patientemail, String relativename, String lastname, String mobilephone,
+			String landlinephone, String address, String location, String province) {
+		
+		Relative relative = new Relative(patientemail, relativename, lastname, mobilephone, landlinephone, address, location, province);
+		ofy().save().entity(relative).now();
+		return relative;
+	}
+
+	@Override
+	public Relative readRelative(String patientemail) {
+		Relative relative = ofy().load().type(Relative.class).filterKey(Key.create(Relative.class, patientemail)).first().now();
+		return relative;
+	}
+
+	@Override
+	public List<Relative> readRelatives() {
+		List<Relative> relatives = ofy().load().type(Relative.class).list();
+		return relatives;
+	}
+
+	@Override
+	public void updateRelative(Relative relative) {
+		ofy().save().entity(relative).now();		
+	}
+
+	@Override
+	public void deleteRelative(Relative relative) {
+		ofy().delete().entity(relative).now();
+	}
+
+	@Override
+	public void deleteRelativeByPatientEmail(String patientemail) {
+		Relative relative = this.readRelative(patientemail);
+		this.deleteRelative(relative);
 	}
 
 }

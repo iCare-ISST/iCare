@@ -44,6 +44,14 @@
     <servlet-name>NewMedicalData</servlet-name>
     <url-pattern>/nuevosdatosmedicos</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>NewRelative</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.New_Relative_Form</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewRelative</servlet-name>
+    <url-pattern>/nuevocuidador</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

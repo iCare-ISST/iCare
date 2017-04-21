@@ -15,7 +15,7 @@ public class Relative implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private  String email;
+	private  String patientemail;
 	@Index
 	private  String relativename;
 	private  String lastname;
@@ -27,10 +27,10 @@ public class Relative implements Serializable {
 	
 	public Relative() {}
 	
-	public Relative(String email, String relativename, String lastname,
+	public Relative(String patientemail, String relativename, String lastname,
 			String mobilephone, String landlinephone, String address, String location, String province) {
 		super();
-		this.email = email;
+		this.patientemail = patientemail;
 		this.relativename = relativename;
 		this.lastname = lastname;
 		this.mobilephone = mobilephone;	
@@ -41,11 +41,11 @@ public class Relative implements Serializable {
 	}
 
 	public String getEmail() {
-		return email;
+		return patientemail;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.patientemail = email;
 	}
 
 	public String getRelativename() {

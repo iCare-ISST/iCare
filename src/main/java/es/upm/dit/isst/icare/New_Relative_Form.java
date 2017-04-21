@@ -16,22 +16,23 @@ import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
-import es.upm.dit.isst.icare.model.Relative;
 import es.upm.dit.isst.icare.model.MedicalData;
+import es.upm.dit.isst.icare.model.Relative;
 
-public class New_MedicalData_Form extends HttpServlet {
+public class New_Relative_Form extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public New_MedicalData_Form() {}
+	public New_Relative_Form() {}
 	
 	@Override
 	public void init() throws ServletException {
 		ObjectifyService.register(Patient.class);	
 		ObjectifyService.register(Aviso.class);
 		ObjectifyService.register(MedicalData.class);
+		ObjectifyService.register(Relative.class);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -51,7 +52,7 @@ public class New_MedicalData_Form extends HttpServlet {
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 
-				RequestDispatcher view = req.getRequestDispatcher ("NewMedicalData_form.jsp");
+				RequestDispatcher view = req.getRequestDispatcher ("NewRelative_form.jsp");
 				view.forward(req,resp);
 		} else {
 			req.getSession().setAttribute( "user" , user);
@@ -70,28 +71,26 @@ public class New_MedicalData_Form extends HttpServlet {
 		String urlLinktext = "Logout" ;
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		
-		String email = req.getParameter("email");
-		String alergias = req.getParameter("alergias");
-		String cardiopatias = req.getParameter("cardiopatias");
-		String cardiovasculares = req.getParameter("cardiovasculares");
-		String mentales = req.getParameter("mentales");
-		String gruposanguineo = req.getParameter("gruposanguineo");
-		String medicacion = req.getParameter("medicacion");
-		String invalidez = req.getParameter("invalidez");
-		String otrasafecciones = req.getParameter("otrasafecciones");
-		String sobrepeso = req.getParameter("sobrepeso");
+		String patientemail = req.getParameter("patientemail");
+		String relativename = req.getParameter("relativename");
+		String lastname = req.getParameter("lastname");
+		String mobilephone = req.getParameter("mobilephone");
+		String landlinephone = req.getParameter("landlinephone");
+		String address = req.getParameter("address");
+		String location = req.getParameter("location");
+		String province = req.getParameter("province");
 		
-		MedicalData medicaldata = dao.createMedicalData(email, alergias, cardiopatias, cardiovasculares, mentales, gruposanguineo, medicacion, invalidez, otrasafecciones, sobrepeso);
+		Relative relative = dao.createRelative(patientemail, relativename, lastname, mobilephone, landlinephone, address, location, province);
 		
-		Patient patient = dao.readPatient(email);
-		Relative relative = dao.readRelative(email);
+		Patient patient = dao.readPatient(patientemail);
+		MedicalData medicaldata = dao.readMedicalData(patientemail);
 		
 		req.getSession().setAttribute( "user" , patient.getPatientname());
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 		req.getSession().setAttribute( "patient" , patient);
 		req.getSession().setAttribute( "medicaldata" , medicaldata);
-		req.getSession().setAttribute( "relative" , relative);
+		req.getSession().setAttribute("relative", relative);
 		RequestDispatcher view = req.getRequestDispatcher ("show_patient.jsp");
 		view.forward(req,resp);
 	}

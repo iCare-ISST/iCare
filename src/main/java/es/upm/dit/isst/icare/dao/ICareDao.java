@@ -5,6 +5,7 @@ import java.util.List;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
 import es.upm.dit.isst.icare.model.MedicalData;
+import es.upm.dit.isst.icare.model.Relative;
 
 public interface ICareDao {
 	// Pacientes
@@ -31,4 +32,13 @@ public interface ICareDao {
 	public void updateMedicalData (MedicalData medicaldata);
 	public void deleteMedicalData (MedicalData medicaldata);
 	public void deleteMedicalDataByEmail (String email);
+	
+	//Cuidadores
+	public Relative createRelative (String patientemail, String relativename, String lastname,
+			String mobilephone, String landlinephone, String address, String location, String province);
+	public Relative readRelative (String patientemail);
+	public List<Relative> readRelatives();
+	public void updateRelative (Relative relative);
+	public void deleteRelative (Relative relative);
+	public void deleteRelativeByPatientEmail (String patientemail);
 }
