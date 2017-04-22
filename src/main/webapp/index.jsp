@@ -14,7 +14,12 @@
 <h1> Bienvenido a Icare </h1>
 <p> Identifíquese para usar icare </p>
 <c:if test = "${empty user}">
-<p> You can press the next link to 
+<p> Autentíquese en el siguiente enlace: 
+<a href=" <c:url value = "${url}" /> "> <c:out value = "${urlLinktext}" /></a></p>
+</c:if>
+<c:if test = "${not empty user}">
+<p> Su usuario no tiene permiso para usar iCare, por favor autentíquese con una cuenta válida o
+pongase en contacto con el administrador del sistema: 
 <a href=" <c:url value = "${url}" /> "> <c:out value = "${urlLinktext}" /></a></p>
 </c:if>
 </body>

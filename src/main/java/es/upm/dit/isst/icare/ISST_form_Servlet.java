@@ -42,10 +42,8 @@ public class ISST_form_Servlet extends HttpServlet {
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();
-			Patient patient = dao.readPatient(user);
 				url = userService.createLogoutURL(req.getRequestURI());	
 				urlLinktext = "Logout" ;
-				req.getSession().setAttribute( "user" , patient.getPatientname());
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 

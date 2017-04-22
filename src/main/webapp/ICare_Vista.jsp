@@ -40,17 +40,17 @@
 					  		</tbody>
 						</table>
 					</form>
-					
-					<footer>
-					  <nav> 
-					      <a href="/nuevoPaciente" > <button type="button">
-					           Añadir Paciente
-					           </button>
-					      </a> 
-					  </nav>
-					</footer>
 				</div>
-		</c:if>
+		</c:if>	
+		<footer>
+			<nav> 
+				<a href="/nuevoPaciente" > 
+					<button type="button">Añadir Paciente</button>
+				</a> 
+			</nav>
+		</footer>
+	
+		
 <br>
 <br>
 <br>

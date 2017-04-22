@@ -91,7 +91,7 @@
           </c:if>
         </div>
         <div class="content-2">
-          <h3>Familiares:</h3>
+          <h3>Cuidadores:</h3>
 		  <c:if test = "${not empty relative}"> 
 	          <p>Nombre: <c:out value = "${relative.relativename}" /> </p>
 	          <p>Apellidos: <c:out value = "${relative.lastname}" /> </p>

@@ -2,6 +2,7 @@ package es.upm.dit.isst.icare;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,24 +43,30 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		String user = "" ;
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		ArrayList<Patient> patients = new ArrayList<>();
+		String[] users = {"operador@gmail.com", "admin@admin.com"};
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();
-			Patient patient = dao.readPatient(user);
-			if (patient != null) {
+			
+			if (Arrays.asList(users).contains(user)) {
 				url = userService.createLogoutURL(req.getRequestURI());	
 				patients.addAll(dao.readPatients());
 				urlLinktext = "Logout" ;
-				req.getSession().setAttribute( "user" , patient.getPatientname());
+				req.getSession().setAttribute( "user" , user);
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 				req.getSession().setAttribute( "patients" , patients);
-				req.getSession().setAttribute( "patient" , patient);
+				
 				RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
 				view.forward(req,resp);
 			} else {
 				req.getSession().setAttribute( "user" , user);
-				RequestDispatcher view = req.getRequestDispatcher ("form.jsp");
+				url = userService.createLogoutURL(req.getRequestURI());	
+				urlLinktext = "Logout" ;
+				req.getSession().setAttribute( "user" , user);
+				req.getSession().setAttribute( "url" , url );
+				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
+				RequestDispatcher view = req.getRequestDispatcher ("index.jsp");
 				view.forward(req,resp);
 			}
 		} else {

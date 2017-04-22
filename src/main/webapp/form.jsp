@@ -11,11 +11,12 @@
 <h1> Formulario de inscripcion</h1>
 <p>Por favor rellene sus datos para darse de alta como usuario:</p><br>
 	<form action="/nuevoPaciente" method="post" acceptcharset="utf-8">
-		<p><input hidden name="email" value="${user}" /></p><br>
 		<p><input type="text" name="patientname" id="patientname" maxLength="255"
 			size="20" required placeholder="Nombre" /></p><br>
 		<p><input type="text" name="lastname" id="lastname" maxLength="255"
 			size="20" required placeholder="Apellidos" /></p><br>
+		<p><input type="text" name="email" id="email" maxLength="255"
+			size="20" required placeholder="Correo electrónico" /></p><br>
 		<p><input type="text" name="birthdate" id="birthdate" maxLength="255"
 			size="20" required placeholder="Fecha de nacimiento" /></p><br>
 		<p><input type="text" name="mobilephone" id="mobilephone"
@@ -32,24 +33,4 @@
 	</form>
 </body>
 
-<footer>
-
-<br>
-<b>Fecha</b> (
-<script type="text/javascript">
-var f = new Date();
-document.write(f.getDate());
-document.write("/");
-document.write(f.getMonth() + 1);
-document.write("/");
-document.write(f.getFullYear());
-</script>) <br>
-<b>Hora</b> (
-<script type="text/javascript">
-var d = new Date();
-document.write(d.getHours());
-document.write(":");
-document.write(d.getMinutes());
-</script>)
-</footer>
 </html>
