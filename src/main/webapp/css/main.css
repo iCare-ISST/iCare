@@ -301,18 +301,17 @@ transition: all linear 0.1s;
 }
 
 * ---------- LISTA PACIENTES ---------- */
-#patientList {
+#patientList, #avisosList {
   margin:50px auto;
   width: 400px;
 }
 
 #aviso {
 	float: right;
-	margin-right: 20px;
-	
+	margin-right: 20px;	
 }
 
-#patientList h2 {
+#patientList h2, #avisosList h2 {
   background-color: #0066ff;
   -webkit-border-radius: 20px 20px 0 0;
   -moz-border-radius: 20px 20px 0 0;
@@ -322,7 +321,7 @@ transition: all linear 0.1s;
   padding: 10px 10px;
 }
 
-#patientList table th {
+#patientList table th, #avisosList table th {
   font-size: 20px;
   background-color:#8080ff;
   color:#fff;
@@ -332,11 +331,11 @@ transition: all linear 0.1s;
   text-align: center;
 }
 
-#patientList table #blank {
+#patientList table #blank, #avisosList table #blank {
   background-color: #eee;
 }
 
-#patientList table tbody tr td button {
+#patientList table tbody tr td button, #avisosList table tbody tr td button {
   background-color: #ffcc00;
   color: #fff;
   margin: 0 auto;
@@ -344,7 +343,7 @@ transition: all linear 0.1s;
   width:50px;
   height:30px;
 }
-#patientList footer nav button {
+#patientList footer nav button, #avisosList footer nav button {
   background-color: #33cc77;
   color: #fff;
   display: block;

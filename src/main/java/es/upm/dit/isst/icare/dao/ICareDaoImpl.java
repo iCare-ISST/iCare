@@ -77,6 +77,11 @@ public class ICareDaoImpl implements ICareDao {
 	}
 	
 	@Override
+	public List<Aviso> readAvisoByCriticidad (String c) {
+		return ofy().load().type(Aviso.class).filter("criticidad", c).list();
+	}
+	
+	@Override
 	public List<Aviso> readAvisos () {
 		List<Aviso> avisos = ofy().load().type(Aviso.class).list();
 		return avisos;

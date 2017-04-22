@@ -20,6 +20,7 @@ public interface ICareDao {
 	// Avisos
 	public Aviso createAviso (String criticidad, String patientEmail, String description);
 	public Aviso readAviso (Long id);
+	public List<Aviso> readAvisoByCriticidad (String c);
 	public List<Aviso> readAvisos ();
 	public void updateAviso (Aviso aviso);
 	public void deleteAviso (Aviso aviso);

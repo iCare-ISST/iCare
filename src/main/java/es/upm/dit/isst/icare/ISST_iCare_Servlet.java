@@ -43,6 +43,10 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		String user = "" ;
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		ArrayList<Patient> patients = new ArrayList<>();
+		ArrayList<Aviso> avisos = new ArrayList<>(dao.readAvisos());
+		ArrayList<Aviso> avisosAlta = new ArrayList<>(dao.readAvisoByCriticidad("Alta"));
+		ArrayList<Aviso> avisosMedia = new ArrayList<>(dao.readAvisoByCriticidad("Media"));
+		ArrayList<Aviso> avisosBaja = new ArrayList<>(dao.readAvisoByCriticidad("Baja"));
 		String[] users = {"operador@gmail.com", "admin@admin.com"};
 		
 		if ( req.getUserPrincipal () != null ){
@@ -54,6 +58,10 @@ public class ISST_iCare_Servlet extends HttpServlet {
 				urlLinktext = "Logout" ;
 				req.getSession().setAttribute( "user" , user);
 				req.getSession().setAttribute( "url" , url );
+				req.getSession().setAttribute( "avisos" , avisos );
+				req.getSession().setAttribute( "avisosAlta" , avisosAlta );
+				req.getSession().setAttribute( "avisosMedia" , avisosMedia );
+				req.getSession().setAttribute( "avisosBaja" , avisosBaja );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 				req.getSession().setAttribute( "patients" , patients);
 				

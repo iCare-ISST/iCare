@@ -11,10 +11,44 @@
 <title>ICare Vista principal</title>
 </head>
 <body>
-<h1> iCare </h1>
+<h1>iCare</h1>
 
 <c:if test = "${not empty user}">
 	<p>Bienvenido <c:out value = "${user}" /></p>
+		<c:if test = "${not empty avisos}">
+			<div id="avisosList">
+				<h2>Avisos</h2>
+				<table>
+					<thead>
+						<tr>
+   							<th>Criticidad</th>
+   							<th>Descripción</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					<c:forEach items = "${avisosAlta}" var = "avisoi">
+						<tr>		
+							<td><c:out value = "${avisoi.criticidad}" /></td>
+							<td><c:out value = "${avisoi.description}" /></td>
+						</tr>
+					</c:forEach>
+					<c:forEach items = "${avisosMedia}" var = "avisoi">
+						<tr>		
+							<td><c:out value = "${avisoi.criticidad}" /></td>
+							<td><c:out value = "${avisoi.description}" /></td>
+						</tr>
+					</c:forEach>
+					<c:forEach items = "${avisosBaja}" var = "avisoi">
+						<tr>		
+							<td><c:out value = "${avisoi.criticidad}" /></td>
+							<td><c:out value = "${avisoi.description}" /></td>
+						</tr>
+					</c:forEach>
+		  			</tbody>
+				</table>
+			</div>
+		</c:if>
 		<c:if test = "${not empty patients}">
 				<div id="patientList">
 					<h2> Pacientes </h2>
