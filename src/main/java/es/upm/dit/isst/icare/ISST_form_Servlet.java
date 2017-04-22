@@ -72,6 +72,7 @@ public class ISST_form_Servlet extends HttpServlet {
 		UserService userService = UserServiceFactory.getUserService();
 		String url = userService.createLoginURL(req.getRequestURI());
 		String urlLinktext = "Logout" ;
+		String user = req.getUserPrincipal().getName();
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		
 		String email = req.getParameter("email");
@@ -88,7 +89,7 @@ public class ISST_form_Servlet extends HttpServlet {
 		ArrayList<Patient> patients = new ArrayList<>();
 		patients.addAll(dao.readPatients());
 		
-		req.getSession().setAttribute( "user" , patientname );
+		req.getSession().setAttribute( "user" , user);
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 		req.getSession().setAttribute( "patients" , patients);
