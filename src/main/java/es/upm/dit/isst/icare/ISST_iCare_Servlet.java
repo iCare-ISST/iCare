@@ -54,7 +54,7 @@ public class ISST_iCare_Servlet extends HttpServlet {
 			
 			if (Arrays.asList(users).contains(user)) {
 				url = userService.createLogoutURL(req.getRequestURI());	
-				patients.addAll(dao.readPatients());
+				
 				urlLinktext = "Logout" ;
 				req.getSession().setAttribute( "user" , user);
 				req.getSession().setAttribute( "url" , url );
@@ -64,6 +64,7 @@ public class ISST_iCare_Servlet extends HttpServlet {
 				req.getSession().setAttribute( "avisosBaja" , avisosBaja );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 				req.getSession().setAttribute( "patients" , patients);
+				patients.addAll(dao.readPatients());
 				
 				RequestDispatcher view = req.getRequestDispatcher ("ICare_Vista.jsp");
 				view.forward(req,resp);

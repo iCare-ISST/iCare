@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-         version="2.5">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <filter>
-  		<filter-name>ObjectifyFilter</filter-name>
-		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    <filter-name>ObjectifyFilter</filter-name>
+    <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
   </filter>
-	<filter-mapping>
-		<filter-name>ObjectifyFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+  <filter-mapping>
+    <filter-name>ObjectifyFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>ICare</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.ISST_iCare_Servlet</servlet-class>
@@ -28,7 +24,7 @@
     <servlet-name>Form</servlet-name>
     <url-pattern>/nuevoPaciente</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>ShowPatient</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.Show_Patient_Servlet</servlet-class>
   </servlet>
@@ -36,11 +32,15 @@
     <servlet-name>DeletePatient</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.Delete_Patient_Servlet</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>DeleteRelative</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.Delete_Relative_Servlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ShowPatient</servlet-name>
     <url-pattern>/verPaciente</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>NewMedicalData</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.New_MedicalData_Form</servlet-class>
   </servlet>
@@ -48,7 +48,7 @@
     <servlet-name>NewMedicalData</servlet-name>
     <url-pattern>/nuevosdatosmedicos</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>NewRelative</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.New_Relative_Form</servlet-class>
   </servlet>
@@ -60,15 +60,21 @@
     <servlet-name>DeletePatient</servlet-name>
     <url-pattern>/borrarPaciente</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>DeleteRelative</servlet-name>
+    <url-pattern>/borrarCuidador</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CrearAviso</servlet-name>
     <url-pattern>/crearAviso</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>CrearAviso</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.ISST_NuevoAviso_Servlet</servlet-class>
   </servlet>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+
 </web-app>

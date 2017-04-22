@@ -106,6 +106,10 @@
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
             </a>
+              <form method="post" action="/borrarCuidador" accept-charset="utf-8" class="borrarC">
+			  	<input type="hidden" name="email" value="${patient.email}"/>
+			  	<input type="submit" value="Borrar Datos"/>
+  			  </form>
           </p>
           </c:if>
           <c:if test = "${empty relative}">

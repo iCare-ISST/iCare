@@ -165,10 +165,14 @@ box-sizing: border-box;
 }
 
 #contenedor input {
-height: 32px;
-visibility: hidden;
+	height: 32px;
+	visibility: hidden;
 }
 
+#contenedor .borrarC input {
+	height: 24px;
+	visibility: visible;
+}
 #contenedor label {
 float: left;
 cursor: pointer;
