@@ -48,7 +48,7 @@ public class ISST_form_Servlet extends HttpServlet {
 				
 				email = req.getParameter("email");
 				if (email != null){
-				Patient patient = dao.readPatient(email);	
+				Patient patient = dao.readPatient(email);				
 				req.getSession().setAttribute( "patient" , patient );
 				}
 				

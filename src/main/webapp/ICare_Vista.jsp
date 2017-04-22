@@ -43,7 +43,7 @@
 		</c:if>	
 		<footer>
 			<nav> 
-				<a href="/nuevoPaciente" > 
+				<a href="/nuevoPaciente?email=null" > 
 					<button type="button">Añadir Paciente</button>
 				</a> 
 			</nav>
