@@ -60,6 +60,14 @@
     <servlet-name>DeletePatient</servlet-name>
     <url-pattern>/borrarPaciente</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CrearAviso</servlet-name>
+    <url-pattern>/crearAviso</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>CrearAviso</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_NuevoAviso_Servlet</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

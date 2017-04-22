@@ -13,6 +13,8 @@
 
 <h2>Paciente</h2>
 
+<p id="aviso"><a href="/crearAviso?patient=${patient.email}"><button>Aviso</button></a></p>
+
 <p>
   <b>Nombre de Paciente:</b>
   <c:out value = "${patient.patientname}" />

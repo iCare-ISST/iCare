@@ -3,6 +3,10 @@
 * { margin: auto; padding: 0; font-family: arial;}
 
 body { background-color: #729fcf; }
+
+button {
+	padding: 3px;
+}
 /*cabecera*/
 
 h1 { text-align: center; color: #555753; padding: 0.5em; font-size: 1.5em; }
@@ -301,6 +305,13 @@ transition: all linear 0.1s;
   margin:50px auto;
   width: 400px;
 }
+
+#aviso {
+	float: right;
+	margin-right: 20px;
+	
+}
+
 #patientList h2 {
   background-color: #0066ff;
   -webkit-border-radius: 20px 20px 0 0;
