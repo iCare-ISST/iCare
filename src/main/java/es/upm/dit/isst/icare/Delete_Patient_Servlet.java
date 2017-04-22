@@ -11,6 +11,11 @@ import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 
 public class Delete_Patient_Servlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email");
@@ -18,6 +23,7 @@ public class Delete_Patient_Servlet extends HttpServlet {
 		dao.deletePatientByPatientname(email);
 		dao.deleteMedicalDataByEmail(email);
 		dao.deleteRelativeByPatientEmail(email);
+		dao.deleteAvisoByPatient(email);
 		
 		resp.sendRedirect("/");
 		

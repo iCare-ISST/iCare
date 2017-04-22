@@ -23,6 +23,7 @@
 						<tr>
    							<th>Criticidad</th>
    							<th>Descripción</th>
+   							<th>Paciente</th>
 						</tr>
 					</thead>
 					
@@ -31,18 +32,21 @@
 						<tr>		
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
+							<td><c:out value = "${avisoi.patientEmail}" /></td>
 						</tr>
 					</c:forEach>
 					<c:forEach items = "${avisosMedia}" var = "avisoi">
 						<tr>		
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
+							<td><c:out value = "${avisoi.patientEmail}" /></td>
 						</tr>
 					</c:forEach>
 					<c:forEach items = "${avisosBaja}" var = "avisoi">
 						<tr>		
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
+							<td><c:out value = "${avisoi.patientEmail}" /></td>
 						</tr>
 					</c:forEach>
 		  			</tbody>

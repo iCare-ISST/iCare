@@ -22,9 +22,9 @@ public class Aviso implements Serializable {
 	@Id
 	private long id;
 	@Index
-	private  String criticidad;
-	private  String patientEmail;
-	private  String description;
+	private String criticidad, patientEmail, description;
+	//private String patientEmail;
+	//private String description;
 	
 	public Aviso(){
 		super();
