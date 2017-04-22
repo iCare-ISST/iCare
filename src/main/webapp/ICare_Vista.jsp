@@ -24,6 +24,7 @@
    							<th>Criticidad</th>
    							<th>Descripción</th>
    							<th>Paciente</th>
+   							<th>Borrar</th>
 						</tr>
 					</thead>
 					
@@ -33,6 +34,7 @@
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
 							<td><c:out value = "${avisoi.patientEmail}" /></td>
+							<td><a href="/borrarAviso?avisoid=${avisoi.id}"><button type="button">Borrar</button></a></td>
 						</tr>
 					</c:forEach>
 					<c:forEach items = "${avisosMedia}" var = "avisoi">
@@ -40,6 +42,7 @@
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
 							<td><c:out value = "${avisoi.patientEmail}" /></td>
+							<td><a href="/borrarAviso?avisoid=${avisoi.id}"><button type="button">Borrar</button></a></td>
 						</tr>
 					</c:forEach>
 					<c:forEach items = "${avisosBaja}" var = "avisoi">
@@ -47,6 +50,7 @@
 							<td><c:out value = "${avisoi.criticidad}" /></td>
 							<td><c:out value = "${avisoi.description}" /></td>
 							<td><c:out value = "${avisoi.patientEmail}" /></td>
+							<td><a href="/borrarAviso?avisoid=${avisoi.id}"><button type="button">Borrar</button></a></td>
 						</tr>
 					</c:forEach>
 		  			</tbody>

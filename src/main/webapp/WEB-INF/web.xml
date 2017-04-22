@@ -64,10 +64,18 @@
     <servlet-name>CrearAviso</servlet-name>
     <url-pattern>/crearAviso</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>CrearAviso</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.ISST_NuevoAviso_Servlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteAviso</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.Delete_Aviso_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAviso</servlet-name>
+    <url-pattern>/borrarAviso</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
