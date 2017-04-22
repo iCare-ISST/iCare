@@ -38,12 +38,20 @@ public class ISST_form_Servlet extends HttpServlet {
 		String url = userService.createLoginURL(req.getRequestURI());
 		String urlLinktext = "Login" ;
 		String user = "" ;
+		String email ="";
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		
 		if ( req.getUserPrincipal () != null ){
-			user = req.getUserPrincipal().getName();
+				user = req.getUserPrincipal().getName();
 				url = userService.createLogoutURL(req.getRequestURI());	
 				urlLinktext = "Logout" ;
+				
+				email = req.getParameter("email");
+				if (email != null){
+				Patient patient = dao.readPatient(email);	
+				req.getSession().setAttribute( "patient" , patient );
+				}
+				
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 

@@ -47,9 +47,13 @@ public class New_MedicalData_Form extends HttpServlet {
 		if ( req.getUserPrincipal () != null ){
 			email = req.getParameter("email");
 			Patient patient = dao.readPatient(email);
+			MedicalData medicaldata = dao.readMedicalData(email);
 				url = userService.createLogoutURL(req.getRequestURI());	
 				urlLinktext = "Logout" ;
 				req.getSession().setAttribute( "email" , patient.getEmail());
+				if (medicaldata != null){ 
+					req.getSession().setAttribute( "medicaldata" , medicaldata ); 
+				} 
 				req.getSession().setAttribute( "url" , url );
 				req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 

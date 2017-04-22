@@ -48,7 +48,7 @@
 </p>
 
 <p>
-  <a href="#"> 
+  <a href="/nuevoPaciente?email=${patient.email}"> 
     <button type="button"> Editar </button>
   </a>  
   <form method="post" action="/borrarPaciente" accept-charset="utf-8">
@@ -77,7 +77,7 @@
 	          <p>Sobrepeso: <c:out value = "${medicaldata.sobrepeso}" /> </p>
 	          <p>Invalidez o problemas de movilidad:  <c:out value = "${medicaldata.invalidez}" /></p>
 	          <p>
-            <a href="#"> 
+            <a href="/nuevosdatosmedicos?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
             </a>
           </p>
@@ -101,7 +101,7 @@
 	          <p>Localidad: <c:out value = "${relative.location}" /> </p>
 	          <p>Provincia: <c:out value = "${relative.province}" /> </p>
 	          <p>
-            <a href="#"> 
+            <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
             </a>
           </p>
