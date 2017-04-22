@@ -16,6 +16,8 @@ public class Delete_Patient_Servlet extends HttpServlet {
 		String email = req.getParameter("email");
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		dao.deletePatientByPatientname(email);
+		dao.deleteMedicalDataByEmail(email);
+		dao.deleteRelativeByPatientEmail(email);
 		
 		resp.sendRedirect("/");
 		

@@ -26,7 +26,7 @@
 		<p><input type="text" name="landlinephone" id="landlinephone"
 			maxLength="255" required size="20" placeholder="Teléfono Fijo" 
 			<c:if test = "${not empty relative}"> value="${relative.landlinephone}"</c:if> /></p><br>
-		<p><input type="text" name="adress" id="adress"
+		<p><input type="text" name="address" id="adress"
 			maxLength="255" required size="20" placeholder="Dirección" 
 			<c:if test = "${not empty relative}"> value="${relative.address}"</c:if> /></p><br>
 		<p><input type="text" name="location" id="location"
