@@ -1,5 +1,6 @@
 package es.upm.dit.isst.icare.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.googlecode.objectify.Key;
@@ -77,8 +78,13 @@ public class ICareDaoImpl implements ICareDao {
 	}
 	
 	@Override
-	public List<Aviso> readAvisoByCriticidad (String c) {
-		return ofy().load().type(Aviso.class).filter("criticidad", c).list();
+	public List<Aviso> readAvisoByCriticidad (String criticidad) {
+		return ofy().load().type(Aviso.class).filter("criticidad", criticidad).list();
+	}
+	
+	@Override
+	public List<Aviso> readAvisoByPatient (String patient) {
+		return ofy().load().type(Aviso.class).filter("patientEmail", patient).list();
 	}
 	
 	@Override
@@ -100,7 +106,17 @@ public class ICareDaoImpl implements ICareDao {
 	@Override
 	public void deleteAvisoById (Long id) {
 		Aviso aviso = this.readAviso(id);
-		this.deleteAviso(aviso);
+		if (aviso != null)
+			this.deleteAviso(aviso);
+	}
+	
+	@Override
+	public void deleteAvisoByPatient (String patient) {
+		List<Aviso> avisosAux = this.readAvisoByPatient(patient);
+		ArrayList<Aviso> avisos = new ArrayList<>(avisosAux);
+		for (Aviso aviso: avisos) {
+			this.deleteAviso(aviso);
+		}
 	}
 
 	//MedicalData
@@ -137,8 +153,8 @@ public class ICareDaoImpl implements ICareDao {
 	@Override
 	public void deleteMedicalDataByEmail(String email) {
 		MedicalData medicaldata = this.readMedicalData(email);
-		this.deleteMedicalData(medicaldata);;
-		
+		if (medicaldata != null)
+			this.deleteMedicalData(medicaldata);		
 	}
 	
 	// Relatives
@@ -177,7 +193,8 @@ public class ICareDaoImpl implements ICareDao {
 	@Override
 	public void deleteRelativeByPatientEmail(String patientemail) {
 		Relative relative = this.readRelative(patientemail);
-		this.deleteRelative(relative);
+		if (relative != null)
+			this.deleteRelative(relative);
 	}
 
 }
