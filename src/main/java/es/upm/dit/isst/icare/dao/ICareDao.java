@@ -30,7 +30,7 @@ public interface ICareDao {
 	
 	// Datos Médicos
 	public MedicalData createMedicalData (String email, String alergias, String cardiopatias, String cardiovasculares, String mentales,
-			String gruposanguineo, String medicación, String invalidez, String otrasafecciones, String sobrepeso);
+			String gruposanguineo, String medicacion, String invalidez, String otrasafecciones, String sobrepeso);
 	public MedicalData readMedicalData (String email);
 	public void updateMedicalData (MedicalData medicaldata);
 	public void deleteMedicalData (MedicalData medicaldata);
