@@ -18,7 +18,6 @@
 		<c:if test = "${not empty patients}">
 				<div id="patientList">
 					<h2> Pacientes </h2>
-					<form action="/verPaciente" method="post" acceptcharset="utf-8">
 						<table>
   							<thead>
     							<tr>
@@ -32,14 +31,14 @@
 									<tr>		
 										<td><c:out value = "${patienti.patientname}" /></td>
 										<td><c:out value = "${patienti.lastname}" /> </td>
-										<input hidden name="email" value="${patienti.email}" />
-										<td><input type="submit" value="Ver" /></td>	
+										<td><a href="/verPaciente?email=${patienti.email}"> 
+              							<button type="button"> Ver </button>
+           								</a></td>	
 									</tr>
 								</c:forEach>
-								</tr>
 					  		</tbody>
 						</table>
-					</form>
+				
 				</div>
 		</c:if>	
 		<footer>

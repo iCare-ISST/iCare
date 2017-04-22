@@ -84,7 +84,7 @@
           </c:if>
           <c:if test = "${empty medicaldata}">
           <p>
-            <a href="/nuevosdatosmedicos"> 
+            <a href="/nuevosdatosmedicos?email=${patient.email}"> 
               <button type="button"> Añadir nuevos Datos Médicos </button>
             </a>
           </p>      
@@ -108,7 +108,7 @@
           </c:if>
           <c:if test = "${empty relative}">
           <p>
-            <a href="/nuevocuidador"> 
+            <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Añadir datos de cuidador </button>
             </a>
           </p>      

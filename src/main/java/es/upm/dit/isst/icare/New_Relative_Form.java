@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.api.server.spi.guice.SystemServiceModule;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.googlecode.objectify.ObjectifyService;
@@ -41,11 +42,12 @@ public class New_Relative_Form extends HttpServlet {
 		String url = userService.createLoginURL(req.getRequestURI());
 		String urlLinktext = "Login" ;
 		String user = "" ;
+		String email ="";
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		
 		if ( req.getUserPrincipal () != null ){
-			user = req.getUserPrincipal().getName();
-			Patient patient = dao.readPatient(user);
+			email = req.getParameter("email");
+			Patient patient = dao.readPatient(email);
 				url = userService.createLogoutURL(req.getRequestURI());	
 				urlLinktext = "Logout" ;
 				req.getSession().setAttribute( "email" , patient.getEmail());

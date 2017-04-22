@@ -16,6 +16,7 @@ import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
+import es.upm.dit.isst.icare.model.Relative;
 import es.upm.dit.isst.icare.model.MedicalData;
 
 public class Show_Patient_Servlet extends HttpServlet {
@@ -31,9 +32,10 @@ public class Show_Patient_Servlet extends HttpServlet {
 		ObjectifyService.register(Patient.class);	
 		ObjectifyService.register(Aviso.class);
 		ObjectifyService.register(MedicalData.class);
+		ObjectifyService.register(Relative.class);
 	}
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		UserService userService = UserServiceFactory.getUserService();
 		String url = userService.createLoginURL(req.getRequestURI());
@@ -44,12 +46,11 @@ public class Show_Patient_Servlet extends HttpServlet {
 		
 		Patient patient = dao.readPatient(email);
 		MedicalData medicaldata = dao.readMedicalData(email);
-		if (patient != null){
-			req.getSession().setAttribute( "patient" , patient);
-		}
-		if (medicaldata != null){
-			req.getSession().setAttribute( "medicaldata" , medicaldata);
-		}
+		Relative relative = dao.readRelative(email);
+		
+		req.getSession().setAttribute( "patient" , patient);
+		req.getSession().setAttribute( "medicaldata" , medicaldata);
+		req.getSession().setAttribute( "relative" , relative);
 		req.getSession().setAttribute( "url" , url );
 		req.getSession().setAttribute( "urlLinktext" , urlLinktext );
 

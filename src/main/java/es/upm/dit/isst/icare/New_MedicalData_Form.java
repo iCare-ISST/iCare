@@ -32,6 +32,7 @@ public class New_MedicalData_Form extends HttpServlet {
 		ObjectifyService.register(Patient.class);	
 		ObjectifyService.register(Aviso.class);
 		ObjectifyService.register(MedicalData.class);
+		ObjectifyService.register(Relative.class);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -40,11 +41,12 @@ public class New_MedicalData_Form extends HttpServlet {
 		String url = userService.createLoginURL(req.getRequestURI());
 		String urlLinktext = "Login" ;
 		String user = "" ;
+		String email ="";
 		ICareDao dao = ICareDaoImpl.getInstancia();
 		
 		if ( req.getUserPrincipal () != null ){
-			user = req.getUserPrincipal().getName();
-			Patient patient = dao.readPatient(user);
+			email = req.getParameter("email");
+			Patient patient = dao.readPatient(email);
 				url = userService.createLogoutURL(req.getRequestURI());	
 				urlLinktext = "Logout" ;
 				req.getSession().setAttribute( "email" , patient.getEmail());
