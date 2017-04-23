@@ -14,41 +14,41 @@
 <h2>Paciente</h2>
 
 <p id="aviso"><a href="/crearAviso?patient=${patient.email}"><button>Aviso</button></a></p>
-
-<p>
-  <b>Nombre de Paciente:</b>
+<table border=2  style="margin: 0 auto;">
+<tr><td><p>
+  <b>Nombre de Paciente:</b></td><td><p>
   <c:out value = "${patient.patientname}" />
-</p>
+</p></td></tr>
 
-<p>
-  <b>Apellidos:</b>
+<tr><td><p>
+  <b>Apellidos:</b></td><td><p>
   <c:out value = "${patient.lastname}" />
-</p>
-<p>
-  <b>Fecha de Nacimiento:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Fecha de Nacimiento:</b></td><td><p>
   <c:out value = "${patient.birthdate}" />
-</p>
-<p>
-  <b>Teléfono Móvil:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Teléfono Móvil:</b></td><td><p>
   <c:out value = "${patient.mobilephone}" />
-</p>
-<p>
-  <b>Teléfono Fijo:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Teléfono Fijo:</b></td><td><p>
    <c:out value = "${patient.landlinephone}" /> 
-</p>
-<p>
-  <b>Dirección:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Dirección:</b></td><td><p>
   <c:out value = "${patient.address}" />
-</p>
-<p>
-  <b>Localidad:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Localidad:</b></td><td><p>
   <c:out value = "${patient.location}" />
-</p>
-<p>
-  <b>Provincia:</b>
+</p></td></tr>
+<tr><td><p>
+  <b>Provincia:</b></td><td><p>
   <c:out value = "${patient.province}" /> 
-</p>
-
+</p></td></tr>
+</table>
 <p>
   <a href="/nuevoPaciente?email=${patient.email}"> 
     <button type="button"> Editar </button>
@@ -67,17 +67,21 @@
                            
     <div class="content">
         <div class="content-1">
-        <h3>Datos Médicos:</h3>
+        
           <c:if test = "${not empty medicaldata}"> 
-	          <p>Alergias: <c:out value = "${medicaldata.alergias}" /> </p>
-	          <p>Cardiopatías: <c:out value = "${medicaldata.cardiopatias}" /> </p>
-	          <p>Problemas Cardiovasculares: <c:out value = "${medicaldata.cardiovasculares}" /> </p>
-	          <p>Problemas Mentales: <c:out value = "${medicaldata.mentales}" /> </p>
-	          <p>Grupo Sanguíneo: <c:out value = "${medicaldata.gruposanguineo}" /> </p>
-	          <p>Medicación: <c:out value = "${medicaldata.medicacion}" /> </p>
-	          <p>Otras Afecciones: <c:out value = "${medicaldata.otrasafecciones}" /> </p>
-	          <p>Sobrepeso: <c:out value = "${medicaldata.sobrepeso}" /> </p>
-	          <p>Invalidez o problemas de movilidad:  <c:out value = "${medicaldata.invalidez}" /></p>
+	          <table border=2  style="margin: 0 auto;">
+	          <td colspan="2" style="font: oblique bold 120% cursive">
+          	  <p align=center>Datos médicos</p></td>
+	          <tr><td><p>Alergias: </td><td><p><c:out value = "${medicaldata.alergias}" /> </p></td></tr>
+	          <tr><td><p>Cardiopatías: </td><td><p><c:out value = "${medicaldata.cardiopatias}" /> </p></td></tr>
+	          <tr><td><p>Problemas Cardiovasculares: </td><td><p><c:out value = "${medicaldata.cardiovasculares}" /> </p></td></tr>
+	          <tr><td><p>Problemas Mentales: </td><td><p><c:out value = "${medicaldata.mentales}" /> </p></td></tr>
+	          <tr><td><p>Grupo Sanguíneo: </td><td><p><c:out value = "${medicaldata.gruposanguineo}" /> </p></td></tr>
+	          <tr><td><p>Medicación: </td><td><p><c:out value = "${medicaldata.medicacion}" /> </p></td></tr>
+	          <tr><td><p>Otras Afecciones: </td><td><p><c:out value = "${medicaldata.otrasafecciones}" /> </p></td></tr>
+	          <tr><td><p>Sobrepeso: </td><td><p><c:out value = "${medicaldata.sobrepeso}" /> </p></td></tr>
+	          <tr><td><p>Invalidez o problemas de movilidad:  </td><td><p><c:out value = "${medicaldata.invalidez}" /></p></td></tr>
+	          </table>
 	          <p>
             <a href="/nuevosdatosmedicos?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
@@ -85,6 +89,7 @@
           </p>
           </c:if>
           <c:if test = "${empty medicaldata}">
+          <h3>Datos Médicos:</h3>
           <p>
             <a href="/nuevosdatosmedicos?email=${patient.email}"> 
               <button type="button"> Añadir nuevos Datos Médicos </button>
@@ -93,15 +98,19 @@
           </c:if>
         </div>
         <div class="content-2">
-          <h3>Cuidadores:</h3>
+          
 		  <c:if test = "${not empty relative}"> 
-	          <p>Nombre: <c:out value = "${relative.relativename}" /> </p>
-	          <p>Apellidos: <c:out value = "${relative.lastname}" /> </p>
-	          <p>Teléfono Móvil: <c:out value = "${relative.mobilephone}" /> </p>
-	          <p>Teléfono Fijo: <c:out value = "${relative.landlinephone}" /> </p>
-	          <p>Dirección: <c:out value = "${relative.address}" /> </p>
-	          <p>Localidad: <c:out value = "${relative.location}" /> </p>
-	          <p>Provincia: <c:out value = "${relative.province}" /> </p>
+	          <table border=2  style="margin: 0 auto;">
+	          <td colspan="2" style="font: oblique bold 120% cursive">
+          	  <p align=center>Cuidadores</p></td>
+	          <tr><td><p>Nombre:  </td><td><p><c:out value = "${relative.relativename}" /> </p></td></tr>
+	          <tr><td><p>Apellidos:  </td><td><p><c:out value = "${relative.lastname}" /> </p></td></tr>
+	          <tr><td><p>Teléfono Móvil:  </td><td><p><c:out value = "${relative.mobilephone}" /> </p></td></tr>
+	          <tr><td><p>Teléfono Fijo:  </td><td><p><c:out value = "${relative.landlinephone}" /> </p></td></tr>
+	          <tr><td><p>Dirección:  </td><td><p><c:out value = "${relative.address}" /> </p></td></tr>
+	          <tr><td><p>Localidad:  </td><td><p><c:out value = "${relative.location}" /> </p></td></tr>
+	          <tr><td><p>Provincia:  </td><td><p><c:out value = "${relative.province}" /> </p></td></tr>
+	          </table>
 	          <p>
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
@@ -113,6 +122,7 @@
           </p>
           </c:if>
           <c:if test = "${empty relative}">
+          <h3>Cuidadores:</h3>
           <p>
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Añadir datos de cuidador </button>
