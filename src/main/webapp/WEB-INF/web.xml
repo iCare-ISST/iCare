@@ -80,6 +80,14 @@
     <servlet-name>DeleteAviso</servlet-name>
     <url-pattern>/borrarAviso</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowAviso</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.Show_Aviso_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAviso</servlet-name>
+    <url-pattern>/mostrarAviso</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
