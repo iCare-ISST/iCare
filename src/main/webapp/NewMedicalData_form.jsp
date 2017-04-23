@@ -43,6 +43,9 @@
 			<c:if test = "${not empty medicaldata}"> value="${medicaldata.otrasafecciones}"</c:if> /></p><br>
 		<p><input type="submit" value="Send" /></p><br>
 	</form>
+	<a href="/verPaciente?email=${email}"> 
+   <button type="button">Volver</button>
+</a>
 </body>
 
 </html>
