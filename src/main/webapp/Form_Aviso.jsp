@@ -14,8 +14,11 @@
 	<p>Por favor rellene con los datos del aviso</p><br>
 	<form action="/crearAviso" method="post" acceptcharset="utf-8">
 		<p><input hidden name="patientemail" value="${patientEmail}" /></p>
-		<p><input type="text" name="criticidad" id="criticidad" maxLength="255"
-			size="20" required placeholder="Critididad: Alta, media, baja…" /></p><br>
+		<p><label>Criticidad:    </label><select name="criticidad" id="criticidad" >
+			<option>Alta</option>
+			<option>Media</option>
+			<option>Baja</option>
+		</select></p>
 		<p><input type="text" name="description" id="description" maxLength="255"
 			size="20" required placeholder="Descripción"  /></p><br>
 		<p><input type="submit" value="Send" /></p><br>
