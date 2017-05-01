@@ -362,6 +362,31 @@ transition: all linear 0.1s;
   width: 200px;
 }
 
+div.tension {
+	width: 100%;
+	background-color: white;
+	height: 600px;
+}
+
+div#dashboard {
+	width: 50%;
+	float:left;
+	height: 500px;
+}
+
+div#tension-media, div#tension {
+	width: 50%;
+	float:left;
+	height: 450px;
+}
+
+div#filtro {
+	margin-left: 50px;
+	margin-top: 10px;
+	float:left;
+	height: 50px;
+}
+
 * ---------- LISTA FAMILIARES --------- */
 #relativeList {
   margin:50px auto;

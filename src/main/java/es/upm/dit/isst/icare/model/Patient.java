@@ -2,6 +2,7 @@ package es.upm.dit.isst.icare.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -28,7 +29,7 @@ public class Patient implements Serializable {
 	private String address;
 	private String location;
 	private String province;
-	private ArrayList<Tension> tension;
+	private ArrayList<Tension> tension = new ArrayList<>();
 	
 	public Patient() {}
 
@@ -44,7 +45,6 @@ public class Patient implements Serializable {
 		this.address = address;
 		this.location = location;
 		this.province = province;
-		this.tension = new ArrayList<>();
 	}
 
 	/*public Long getId() {
@@ -142,5 +142,23 @@ public class Patient implements Serializable {
 	public void setTension(Tension tension) {
 		this.tension.add(tension);
 		//dao.updatePatient(this);
+	}
+	
+	public double getTensionMaxMedia() {
+		Iterator<Tension> tension = this.tension.iterator();
+		double suma = 0;
+		while (tension.hasNext()){
+            suma += tension.next().getTensionMax();
+        }
+		return suma/this.tension.size();
+	}
+	
+	public double getTensionMinMedia() {
+		Iterator<Tension> tension = this.tension.iterator();
+		double suma = 0;
+		while (tension.hasNext()){
+            suma += tension.next().getTensionMin();
+        }
+		return suma/this.tension.size();
 	}
 }

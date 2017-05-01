@@ -5,13 +5,89 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/main.css" />
-<title>Vista de Paciente</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<title>Vista de Paciente</title>
 </head>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+<script>
+    google.charts.load('current', {packages: ['corechart', 'controls']});
+    google.charts.setOnLoadCallback(dibujarGraficoTension);
+    google.charts.setOnLoadCallback(dibujarGraficoTensionMedia);
+    
+    function dibujarGraficoTension() {
+        // Tabla de datos: valores y etiquetas de la gráfica
+        let data = new google.visualization.DataTable();
+        data.addColumn('date', 'Tensión');
+        data.addColumn('number', 'Máxima');
+        data.addColumn('number', 'Mínima');
+        data.addRows([
+        	<c:forEach items = "${patient.tension}" var = "tensioni">
+				[new Date(${tensioni.year}, ${tensioni.month}, ${tensioni.day}), ${tensioni.tensionMax}, ${tensioni.tensionMin}],
+			</c:forEach>
+        ]);
+        let dashboard = new google.visualization.Dashboard(document.getElementById('dashboard'));
+        let donutRangeSlider = new google.visualization.ControlWrapper({
+            'controlType': 'DateRangeFilter',
+            'containerId': 'filtro',
+            'options': {
+                'filterColumnLabel': 'Tensión'
+            }
+        });
+
+        let lineChart = new google.visualization.ChartWrapper({
+            'chartType': 'LineChart',
+            'containerId': 'tension',
+            'options': {
+                'width': 600,
+                'height': 450,
+                'pieSliceText': 'value',
+                'title': 'Tensión',
+                'curveType': 'function',
+                'hAxis': { 'title': 'día' },
+                'legend': { position: 'bottom' }
+            }
+        });
+
+        let options = {
+            'title': 'Tensión',
+            'curveType': 'function',
+            'hAxis': { 'title': 'día' },
+            'legend': { position: 'bottom' }
+        }
+
+        // Dibujar el gráfico
+        dashboard.bind(donutRangeSlider, lineChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data);
+    }
+
+    function dibujarGraficoTensionMedia() {
+        // Tabla de datos: valores y etiquetas de la gráfica
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Texto');
+        data.addColumn('number', 'Tensión máxima');
+        data.addColumn('number', 'Tensión mínima');
+        data.addRows([
+            ['Tensión', ${patient.tensionMaxMedia}, ${patient.tensionMinMedia}],
+        ]);
+        let options = {
+            'title': 'Tensión media',
+            'legend': { 'position': 'bottom' },
+            'vAxis': { 'minValue': 0 }
+        }
+
+        // Dibujar el gráfico
+        let chart = new google.visualization.ColumnChart(document.getElementById('tension-media'));
+        chart.draw(data, options);
+    }
+</script> 
+
 <body>
 
-<h2>Paciente</h2>
+<h2>Pacienteee</h2>
 
 <p id="aviso"><a href="/crearAviso?patient=${patient.email}"><button>Aviso</button></a></p>
 <table border=2  style="margin: 0 auto;">
@@ -153,7 +229,26 @@
           </p>      
           </c:if>
         </div>
+        <!--div class="content-3">
+        	<h3>Tensión</h3>
+		    <div id="dashboard" style="width: 600px; height: 500px; float: left;">
+		        <div id="tension" style="width: 600px; height: 450px;"></div>
+		        <br><br><br>
+		        <div id="filtro" style="margin-left: 50px; height: 50px;"></div>
+		    </div>
+		    <div id="tension-media" style="width: 600px; height: 450px; float: left;"></div>
+        </div-->
     </div>
+</div>
+
+<div class="tension">
+	<h1>Tensión</h1>
+	<div id="dashboard">
+	    <div id="tension"></div>
+	    <br><br><br>
+	    <div id="filtro"></div>
+	</div>
+	<div id="tension-media"></div>
 </div>
 
 <a href="/"> 
