@@ -47,27 +47,6 @@ public class Show_Patient_Servlet extends HttpServlet {
 		String email = req.getParameter("email");
 		
 		Patient patient = dao.readPatient(email);
-		if (patient.getTension().isEmpty()) {
-			@SuppressWarnings("deprecation")
-			Tension tension = new Tension(13, 7, new Date(2017, 5, 4));
-			@SuppressWarnings("deprecation")
-			Tension tension1 = new Tension(15, 8, new Date(2017, 5, 5));
-			@SuppressWarnings("deprecation")
-			Tension tension2 = new Tension(12, 7, new Date(2017, 5, 6));
-			@SuppressWarnings("deprecation")
-			Tension tension3 = new Tension(11, 6, new Date(2017, 5, 7));
-			@SuppressWarnings("deprecation")
-			Tension tension4 = new Tension(10, 5, new Date(2017, 5, 8));
-			@SuppressWarnings("deprecation")
-			Tension tension5 = new Tension(13, 8, new Date(2017, 5, 9));
-			patient.setTension(tension);
-			patient.setTension(tension1);
-			patient.setTension(tension2);
-			patient.setTension(tension3);
-			patient.setTension(tension4);
-			patient.setTension(tension5);
-			dao.updatePatient(patient);
-		}
 		MedicalData medicaldata = dao.readMedicalData(email);
 		Relative relative = dao.readRelative(email);
 		

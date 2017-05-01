@@ -88,6 +88,14 @@
     <servlet-name>ShowAviso</servlet-name>
     <url-pattern>/mostrarAviso</url-pattern>
   </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>MedirTension</servlet-name>
+    <url-pattern>/nuevaTension</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MedirTension</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_MedirTension_Servlet</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

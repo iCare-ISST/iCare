@@ -35,7 +35,7 @@ public class Tension implements Serializable  {
 	
 	@SuppressWarnings("deprecation")
 	public int getYear() {
-		return this.date.getYear();
+		return this.date.getYear() + 1900;
 	}
 	
 	@SuppressWarnings("deprecation")

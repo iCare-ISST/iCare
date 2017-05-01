@@ -241,6 +241,10 @@
     </div>
 </div>
 
+<a href="/"> 
+   <button type="button">Volver</button>
+</a>
+
 <div class="tension">
 	<h1>Tensión</h1>
 	<div id="dashboard">
@@ -250,9 +254,5 @@
 	</div>
 	<div id="tension-media"></div>
 </div>
-
-<a href="/"> 
-   <button type="button">Volver</button>
-</a>
 </body>
 </html>
