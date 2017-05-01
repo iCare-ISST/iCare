@@ -1,13 +1,11 @@
 package es.upm.dit.isst.icare.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
-
-import es.upm.dit.isst.icare.dao.ICareDao;
-import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 
 @Entity
 public class Patient implements Serializable {
@@ -20,16 +18,17 @@ public class Patient implements Serializable {
 	
 	//private Long Id;
 	@Id
-	private  String email;
+	private String email;
 	@Index
-	private  String patientname;
-	private  String lastname;
-	private  String birthdate;
-	private  String mobilephone;
-	private  String landlinephone;
-	private  String address;
-	private  String location;
-	private  String province;
+	private String patientname;
+	private String lastname;
+	private String birthdate;
+	private String mobilephone;
+	private String landlinephone;
+	private String address;
+	private String location;
+	private String province;
+	private ArrayList<Tension> tension;
 	
 	public Patient() {}
 
@@ -45,6 +44,7 @@ public class Patient implements Serializable {
 		this.address = address;
 		this.location = location;
 		this.province = province;
+		this.tension = new ArrayList<>();
 	}
 
 	/*public Long getId() {
@@ -132,6 +132,15 @@ public class Patient implements Serializable {
 
 	public void setProvince(String province) {
 		this.province = province;
+		//dao.updatePatient(this);
+	}
+	
+	public ArrayList<Tension> getTension() {
+		return this.tension;
+	}
+
+	public void setTension(Tension tension) {
+		this.tension.add(tension);
 		//dao.updatePatient(this);
 	}
 }
