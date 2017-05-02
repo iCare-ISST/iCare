@@ -171,4 +171,13 @@ public class Patient implements Serializable {
 		this.pulsaciones.add(pulsaciones);
 		//dao.updatePatient(this);
 	}
+	
+	public double getPulsacionesMedia() {
+		Iterator<Pulsaciones> pulsaciones = this.pulsaciones.iterator();
+		double suma = 0;
+		while (pulsaciones.hasNext()){
+            suma += pulsaciones.next().getPulsaciones();
+        }
+		return suma/this.pulsaciones.size();
+	}
 }

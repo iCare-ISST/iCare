@@ -1,6 +1,7 @@
 package es.upm.dit.isst.icare;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
+import es.upm.dit.isst.icare.model.Pulsaciones;
 import es.upm.dit.isst.icare.model.Relative;
 import es.upm.dit.isst.icare.model.MedicalData;
 
@@ -45,6 +47,14 @@ public class Show_Patient_Servlet extends HttpServlet {
 		String email = req.getParameter("email");
 		
 		Patient patient = dao.readPatient(email);
+		if (patient.getPulsaciones().isEmpty()) {
+			for (int i = 0; i < 31; i++) {
+				@SuppressWarnings("deprecation")
+				Pulsaciones pulsaciones = new Pulsaciones(Math.random()*(50-150)+150, new Date(2017, 5, i));
+				patient.setPulsaciones(pulsaciones);
+			}
+			dao.updatePatient(patient);
+		}
 		MedicalData medicaldata = dao.readMedicalData(email);
 		Relative relative = dao.readRelative(email);
 		

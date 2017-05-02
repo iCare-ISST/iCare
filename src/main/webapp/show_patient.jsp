@@ -12,13 +12,15 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 <script>
-    google.charts.load('current', {packages: ['corechart', 'controls']});
+    google.charts.load('current', {packages: ['corechart', 'controls', 'gauge']});
     google.charts.setOnLoadCallback(dibujarGraficoTension);
     google.charts.setOnLoadCallback(dibujarGraficoTensionMedia);
+    google.charts.setOnLoadCallback(dibujarGraficoPulsaciones);
+    google.charts.setOnLoadCallback(dibujarGraficoPulsacionesMedia);
     
     function dibujarGraficoTension() {
         // Tabla de datos: valores y etiquetas de la gráfica
-        let data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable();
         data.addColumn('date', 'Tensión');
         data.addColumn('number', 'Máxima');
         data.addColumn('number', 'Mínima');
@@ -27,16 +29,16 @@
 				[new Date(${tensioni.year}, ${tensioni.month}, ${tensioni.day}), ${tensioni.tensionMax}, ${tensioni.tensionMin}],
 			</c:forEach>
         ]);
-        let dashboard = new google.visualization.Dashboard(document.getElementById('dashboard'));
-        let donutRangeSlider = new google.visualization.ControlWrapper({
+        var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard-tension'));
+        var donutRangeSlider = new google.visualization.ControlWrapper({
             'controlType': 'DateRangeFilter',
-            'containerId': 'filtro',
+            'containerId': 'filtro-tension',
             'options': {
                 'filterColumnLabel': 'Tensión'
             }
         });
 
-        let lineChart = new google.visualization.ChartWrapper({
+        var lineChart = new google.visualization.ChartWrapper({
             'chartType': 'LineChart',
             'containerId': 'tension',
             'options': {
@@ -50,13 +52,6 @@
             }
         });
 
-        let options = {
-            'title': 'Tensión',
-            'curveType': 'function',
-            'hAxis': { 'title': 'día' },
-            'legend': { position: 'bottom' }
-        }
-
         // Dibujar el gráfico
         dashboard.bind(donutRangeSlider, lineChart);
 
@@ -66,21 +61,86 @@
 
     function dibujarGraficoTensionMedia() {
         // Tabla de datos: valores y etiquetas de la gráfica
-        let data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable();
         data.addColumn('string', 'Texto');
         data.addColumn('number', 'Tensión máxima');
         data.addColumn('number', 'Tensión mínima');
         data.addRows([
             ['Tensión', ${patient.tensionMaxMedia}, ${patient.tensionMinMedia}],
         ]);
-        let options = {
+        var options = {
             'title': 'Tensión media',
             'legend': { 'position': 'bottom' },
             'vAxis': { 'minValue': 0 }
         }
 
         // Dibujar el gráfico
-        let chart = new google.visualization.ColumnChart(document.getElementById('tension-media'));
+        var chart = new google.visualization.ColumnChart(document.getElementById('tension-media'));
+        chart.draw(data, options);
+    }
+    
+    function dibujarGraficoPulsaciones() {
+        // Tabla de datos: valores y etiquetas de la gráfica
+        var data = new google.visualization.DataTable();
+        data.addColumn('date', 'Pulsaciones');
+        data.addColumn('number', 'Pulsaciones');
+        data.addRows([
+        	<c:forEach items = "${patient.pulsaciones}" var = "pulsacionesi">
+				[new Date(${pulsacionesi.year}, ${pulsacionesi.month}, ${pulsacionesi.day}), ${pulsacionesi.pulsaciones}],
+			</c:forEach>
+        ]);
+        var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard-pulsaciones'));
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+            'controlType': 'DateRangeFilter',
+            'containerId': 'filtro-pulsaciones',
+            'options': {
+                'filterColumnLabel': 'Pulsaciones'
+            }
+        });
+
+        var lineChart = new google.visualization.ChartWrapper({
+            'chartType': 'LineChart',
+            'containerId': 'pulsaciones',
+            'options': {
+                'width': 600,
+                'height': 450,
+                'pieSliceText': 'value',
+                'title': 'Pulsaciones',
+                'curveType': 'function',
+                'hAxis': { 'title': 'día' },
+                'legend': { position: 'bottom' }
+            }
+        });
+
+        // Dibujar el gráfico
+        dashboard.bind(donutRangeSlider, lineChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data);
+    }
+
+    function dibujarGraficoPulsacionesMedia() {
+        // Tabla de datos: valores y etiquetas de la gráfica
+        var data = google.visualization.arrayToDataTable([
+            ['Label', 'Value'],
+            ['Pulsaciones', ${patient.pulsacionesMedia}]
+        ]);
+        var options = {
+            'title': 'Tensión media',
+            'legend': { 'position': 'bottom' },
+			'redFrom': 150,
+			'redTo': 200,
+            'yellowFrom': 100,
+            'yellowTo': 150,
+            'greenFrom': 60,
+            'greenTo': 100,
+            'minorTicks': 5,
+            'min': 0,
+            'max': 200
+        }
+
+        // Dibujar el gráfico
+        var chart = new google.visualization.Gauge(document.getElementById('pulsaciones-media'));
         chart.draw(data, options);
     }
 </script> 
@@ -247,12 +307,22 @@
 
 <div class="tension">
 	<h1>Tensión</h1>
-	<div id="dashboard">
+	<div id="dashboard-tension">
 	    <div id="tension"></div>
 	    <br><br><br>
-	    <div id="filtro"></div>
+	    <div id="filtro-tension"></div>
 	</div>
 	<div id="tension-media"></div>
+</div>
+
+<div class="pulsaciones">
+	<h1>Pulsaciones</h1>
+	<div id="dashboard-pulsaciones">
+	    <div id="pulsaciones"></div>
+	    <br><br><br>
+	    <div id="filtro-pulsaciones"></div>
+	</div>
+	<div id="pulsaciones-media"></div>
 </div>
 </body>
 </html>

@@ -357,6 +357,7 @@ nav a { margin: 0px 10px 0px 0px;}
 	width:50px;
 	height:30px;
 }
+
 #patientList footer nav button, #avisosList footer nav button {
 	background-color: #33cc77;
 	color: #fff;
@@ -366,31 +367,33 @@ nav a { margin: 0px 10px 0px 0px;}
 	width: 200px;
 }
 
-div.tension {
-	width: 100%;
+div.tension, div.pulsaciones {
+	width: 90%;
 	background-color: white;
 	height: 600px;
+	margin-top: 10px;
+	margin-left: 5%;
 }
 
-div#dashboard {
+div#dashboard-tension, div#dashboard-pulsaciones {
 	width: 50%;
 	float:left;
 	height: 500px;
 }
 
-div#tension {
+div#tension, div#pulsaciones {
 	width: 100%;
 	float:left;
 	height: 450px;
 }
 
-div#tension-media {
+div#tension-media, div#pulsaciones-media {
 	width: 50%;
 	float:left;
 	height: 450px;
 }
 
-div#filtro {
+div#filtro-tension, div#filtro-pulsaciones {
 	margin-left: 50px;
 	margin-top: 10px;
 	float:left;
