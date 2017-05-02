@@ -14,9 +14,9 @@ public class Pulsaciones implements Serializable {
 	
 	public Pulsaciones() {};
 	
-	public Pulsaciones(double pulsaciones, Date date) {
+	public Pulsaciones(double pulsaciones) {
 		this.pulsaciones = pulsaciones;
-		this.date = date;//new Date();
+		this.date = new Date();
 	}
 	
 	public double getPulsaciones() {

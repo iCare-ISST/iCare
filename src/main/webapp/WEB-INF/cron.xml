@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
   <cron>
-	<url>/nuevaTension</url>
-	<description>Mide la tensión de todos los usuarios</description>
+	<url>/medirDatos</url>
+	<description>Mide varios datos de los pacientes</description>
 	<schedule>every day 01:00</schedule>
   </cron>
 </cronentries>
