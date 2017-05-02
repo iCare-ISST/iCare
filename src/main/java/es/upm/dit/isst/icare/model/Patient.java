@@ -30,6 +30,7 @@ public class Patient implements Serializable {
 	private String location;
 	private String province;
 	private ArrayList<Tension> tension = new ArrayList<>();
+	private ArrayList<Pulsaciones> pulsaciones = new ArrayList<>();
 	
 	public Patient() {}
 
@@ -160,5 +161,14 @@ public class Patient implements Serializable {
             suma += tension.next().getTensionMin();
         }
 		return suma/this.tension.size();
+	}
+	
+	public ArrayList<Pulsaciones> getPulsaciones() {
+		return this.pulsaciones;
+	}
+
+	public void setPulsaciones(Pulsaciones pulsaciones) {
+		this.pulsaciones.add(pulsaciones);
+		//dao.updatePatient(this);
 	}
 }

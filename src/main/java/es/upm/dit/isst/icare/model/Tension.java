@@ -15,10 +15,10 @@ public class Tension implements Serializable  {
 	
 	public Tension() {};
 	
-	public Tension(double tensionMax, double tensionMin, Date date) {
+	public Tension(double tensionMax, double tensionMin) {
 		this.tensionMax = tensionMax;
 		this.tensionMin = tensionMin;
-		this.date = date;//new Date();
+		this.date = new Date();
 	}
 	
 	public double getTensionMax() {
@@ -46,5 +46,10 @@ public class Tension implements Serializable  {
 	@SuppressWarnings("deprecation")
 	public int getDay() {
 		return this.date.getDay();
+	}
+
+	public void setTension(double tensionMax, double tensionMin) {
+		this.tensionMax = tensionMax;
+		this.tensionMin = tensionMin;
 	}
 }

@@ -3,6 +3,6 @@
   <cron>
 	<url>/nuevaTension</url>
 	<description>Mide la tensión de todos los usuarios</description>
-	<schedule>every 2 minutes</schedule>
+	<schedule>every day 01:00</schedule>
   </cron>
 </cronentries>

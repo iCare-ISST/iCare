@@ -47,7 +47,15 @@ public class ISST_iCare_Servlet extends HttpServlet {
 		ArrayList<Aviso> avisosAlta = new ArrayList<>(dao.readAvisoByCriticidad("Alta"));
 		ArrayList<Aviso> avisosMedia = new ArrayList<>(dao.readAvisoByCriticidad("Media"));
 		ArrayList<Aviso> avisosBaja = new ArrayList<>(dao.readAvisoByCriticidad("Baja"));
-		String[] users = {"operador@gmail.com", "admin@admin.com"};
+		String[] users = {
+				"operador@gmail.com",
+				"admin@admin.com",
+				"carlosmoro95@gmail.com",
+				"arr552@gmail.com",
+				"jmviceirapp@gmail.com",
+				"dibesa95@gmail.com",
+				"javieramordelacruz@gmail.com"
+		};
 		
 		if ( req.getUserPrincipal () != null ){
 			user = req.getUserPrincipal().getName();

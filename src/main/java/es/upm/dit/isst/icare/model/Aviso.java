@@ -6,9 +6,6 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
-import es.upm.dit.isst.icare.dao.ICareDao;
-import es.upm.dit.isst.icare.dao.ICareDaoImpl;
-
 @Entity
 public class Aviso implements Serializable {
 	

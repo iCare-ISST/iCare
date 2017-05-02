@@ -1,7 +1,6 @@
 package es.upm.dit.isst.icare;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +17,6 @@ import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Patient;
 import es.upm.dit.isst.icare.model.Relative;
-import es.upm.dit.isst.icare.model.Tension;
 import es.upm.dit.isst.icare.model.MedicalData;
 
 public class Show_Patient_Servlet extends HttpServlet {
