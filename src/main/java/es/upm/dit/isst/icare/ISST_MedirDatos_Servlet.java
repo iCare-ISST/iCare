@@ -33,11 +33,11 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			double pulsaciones_0_1 = Math.random();
 			Pulsaciones pulsaciones;
 			if (pulsaciones_0_1 < 0.5) {
-				pulsaciones = new Pulsaciones(pulsaciones_0_1 * (60 - 100) + 100);
+				pulsaciones = new Pulsaciones(Math.random() * (60 - 100) + 100);
 			} else if (pulsaciones_0_1 < 0.8) {
-				pulsaciones = new Pulsaciones(pulsaciones_0_1 * (50 - 150) + 150);
+				pulsaciones = new Pulsaciones(Math.random() * (50 - 150) + 150);
 			} else {
-				pulsaciones = new Pulsaciones(pulsaciones_0_1 * (40 - 200) + 200);
+				pulsaciones = new Pulsaciones(Math.random() * (40 - 200) + 200);
 			}
 			patient.setTension(tension);
 			patient.setPulsaciones(pulsaciones);

@@ -123,10 +123,10 @@
         // Tabla de datos: valores y etiquetas de la gráfica
         var data = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
-            ['Pulsaciones', ${patient.pulsacionesMedia}]
+            ['lpm', ${patient.pulsacionesMedia}]
         ]);
         var options = {
-            'title': 'Tensión media',
+            'title': 'Pulsaciones media',
             'legend': { 'position': 'bottom' },
 			'redFrom': 150,
 			'redTo': 200,
@@ -147,7 +147,7 @@
 
 <body>
 
-<h2>Pacienteee</h2>
+<h2>Paciente</h2>
 
 <p id="aviso"><a href="/crearAviso?patient=${patient.email}"><button>Aviso</button></a></p>
 <table border=2  style="margin: 0 auto;">
