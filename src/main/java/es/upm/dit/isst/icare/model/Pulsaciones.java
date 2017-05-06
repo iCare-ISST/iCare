@@ -3,7 +3,7 @@ package es.upm.dit.isst.icare.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Pulsaciones implements Serializable {
+public class Pulsaciones implements Serializable, Comparable<Pulsaciones> {
 
 	/**
 	 * 
@@ -19,6 +19,11 @@ public class Pulsaciones implements Serializable {
 		this.date = new Date();
 	}
 	
+	public Pulsaciones(double pulsaciones, Date date) {
+		this.pulsaciones = pulsaciones;
+		this.date = date;
+	}
+	
 	public double getPulsaciones() {
 		return this.pulsaciones;
 	}
@@ -27,22 +32,21 @@ public class Pulsaciones implements Serializable {
 		return this.date;
 	}
 	
-	@SuppressWarnings("deprecation")
-	public int getYear() {
-		return this.date.getYear() + 1900;
-	}
-	
-	@SuppressWarnings("deprecation")
-	public int getMonth() {
-		return this.date.getMonth();
-	}
-	
-	@SuppressWarnings("deprecation")
-	public int getDay() {
-		return this.date.getDay();
+	public long getDateLong() {
+		return this.date.getTime();
 	}
 
 	public void setPulsaciones(double pulsaciones) {
 		this.pulsaciones = pulsaciones;
+	}
+
+	@Override
+	public int compareTo(Pulsaciones p) {
+		if (p.getDate().getTime() > this.getDate().getTime()) {
+			return -1;
+		} else if (p.getDate().getTime() < this.getDate().getTime()) {
+			return 1;
+		}
+		return 0;
 	}
 }

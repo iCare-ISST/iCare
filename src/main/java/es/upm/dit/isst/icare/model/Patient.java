@@ -2,6 +2,7 @@ package es.upm.dit.isst.icare.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 import com.googlecode.objectify.annotation.Entity;
@@ -142,6 +143,7 @@ public class Patient implements Serializable {
 
 	public void setTension(Tension tension) {
 		this.tension.add(tension);
+		Collections.sort(this.tension);
 		//dao.updatePatient(this);
 	}
 	
@@ -169,6 +171,7 @@ public class Patient implements Serializable {
 
 	public void setPulsaciones(Pulsaciones pulsaciones) {
 		this.pulsaciones.add(pulsaciones);
+		Collections.sort(this.pulsaciones);
 		//dao.updatePatient(this);
 	}
 	

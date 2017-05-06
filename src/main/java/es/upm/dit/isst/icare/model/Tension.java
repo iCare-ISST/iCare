@@ -3,7 +3,7 @@ package es.upm.dit.isst.icare.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Tension implements Serializable  {
+public class Tension implements Serializable, Comparable<Tension>  {
 
 	/**
 	 * 
@@ -21,6 +21,12 @@ public class Tension implements Serializable  {
 		this.date = new Date();
 	}
 	
+	public Tension(double tensionMax, double tensionMin, Date date) {
+		this.tensionMax = tensionMax;
+		this.tensionMin = tensionMin;
+		this.date = date;
+	}
+	
 	public double getTensionMax() {
 		return tensionMax;
 	}
@@ -33,23 +39,22 @@ public class Tension implements Serializable  {
 		return this.date;
 	}
 	
-	@SuppressWarnings("deprecation")
-	public int getYear() {
-		return this.date.getYear() + 1900;
-	}
-	
-	@SuppressWarnings("deprecation")
-	public int getMonth() {
-		return this.date.getMonth();
-	}
-	
-	@SuppressWarnings("deprecation")
-	public int getDay() {
-		return this.date.getDay();
+	public long getDateLong() {
+		return this.date.getTime();
 	}
 
 	public void setTension(double tensionMax, double tensionMin) {
 		this.tensionMax = tensionMax;
 		this.tensionMin = tensionMin;
+	}
+	
+	@Override
+	public int compareTo(Tension t) {
+		if (t.getDate().getTime() > this.getDate().getTime()) {
+			return -1;
+		} else if (t.getDate().getTime() < this.getDate().getTime()) {
+			return 1;
+		}
+		return 0;
 	}
 }

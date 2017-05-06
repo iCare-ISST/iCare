@@ -26,7 +26,7 @@
         data.addColumn('number', 'Mínima');
         data.addRows([
         	<c:forEach items = "${patient.tension}" var = "tensioni">
-				[new Date(${tensioni.year}, ${tensioni.month}, ${tensioni.day}), ${tensioni.tensionMax}, ${tensioni.tensionMin}],
+				[new Date(${tensioni.dateLong}), ${tensioni.tensionMax}, ${tensioni.tensionMin}],
 			</c:forEach>
         ]);
         var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard-tension'));
@@ -86,7 +86,7 @@
         data.addColumn('number', 'Pulsaciones');
         data.addRows([
         	<c:forEach items = "${patient.pulsaciones}" var = "pulsacionesi">
-				[new Date(${pulsacionesi.year}, ${pulsacionesi.month}, ${pulsacionesi.day}), ${pulsacionesi.pulsaciones}],
+				[new Date(${pulsacionesi.dateLong}), ${pulsacionesi.pulsaciones}],
 			</c:forEach>
         ]);
         var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard-pulsaciones'));
