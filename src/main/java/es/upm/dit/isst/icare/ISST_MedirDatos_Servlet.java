@@ -13,6 +13,7 @@ import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Patient;
 import es.upm.dit.isst.icare.model.Pulsaciones;
 import es.upm.dit.isst.icare.model.Tension;
+import es.upm.dit.isst.icare.model.Monoxido;
 
 public class ISST_MedirDatos_Servlet extends HttpServlet {
 	/**
@@ -30,6 +31,7 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			String criticidad = "";
 			String description ="";
 			
+			// Medidas de Tensión - Sensores Biométricos
 			Tension tension = new Tension(
 					Math.random() * (8 - 20) + 20,
 					Math.random() * (5 - 11) + 11
@@ -43,6 +45,8 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 				description="Indicios de Hipotensión, la presión sistólica se encuentra por debajo de los 11 cm de Hg y la diástolica de los 7 cm de Hg.";
 				dao.createAviso(criticidad, patientEmail, description);
 			}
+			
+			//Medidas de Pulsaciones - Sensores Biométricos
 			double pulsaciones_0_1 = Math.random();
 			Pulsaciones pulsaciones;
 			if (pulsaciones_0_1 < 0.5) {
@@ -86,8 +90,33 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 					dao.createAviso(criticidad, patientEmail, description);
 				} 
 			}
+			
+			// Medidas de nivel de monóxido de carbono - Sensores de Entorno
+			double rnd = Math.random();
+			Monoxido monoxido;
+			if (rnd < 0.7){
+				monoxido = new Monoxido(Math.random() * (0 - 35) + 35);
+			} else if (rnd <0.8){
+				monoxido = new Monoxido(Math.random() * (35 - 200) + 200);
+				if (monoxido.getPpm() > 120){
+					criticidad="Baja";
+					description="El nivel de monóxido de carbono empieza a ser no saludable. Entre 120 y 200 partes por millón";
+					dao.createAviso(criticidad, patientEmail, description);
+				}
+			} else if (rnd <0.9){
+				monoxido = new Monoxido(Math.random() * (200 - 400) + 400);
+				criticidad="Media";
+				description="El nivel de monóxido de carbono es elevado. Entre 200 y 400 partes por millón";
+				dao.createAviso(criticidad, patientEmail, description);
+			} else {
+				monoxido = new Monoxido(Math.random() * (400 - 2000) + 2000);
+				criticidad="Alta";
+				description="El nivel de monóxido de carbono es crítico. Por encima de 400 partes por millón";
+				dao.createAviso(criticidad, patientEmail, description);
+			}
 			patient.setTension(tension);
 			patient.setPulsaciones(pulsaciones);
+			patient.setMonoxido(monoxido);
 			dao.updatePatient(patient);
 		}
 	}

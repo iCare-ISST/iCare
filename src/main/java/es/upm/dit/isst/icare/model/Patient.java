@@ -32,6 +32,7 @@ public class Patient implements Serializable {
 	private String province;
 	private ArrayList<Tension> tension = new ArrayList<>();
 	private ArrayList<Pulsaciones> pulsaciones = new ArrayList<>();
+	private ArrayList<Monoxido> monoxido = new ArrayList<>();
 	
 	public Patient() {}
 
@@ -182,5 +183,23 @@ public class Patient implements Serializable {
             suma += pulsaciones.next().getPulsaciones();
         }
 		return suma/this.pulsaciones.size();
+	}
+	public ArrayList<Monoxido> getMonoxido() {
+		return this.monoxido;
+	}
+
+	public void setMonoxido(Monoxido monoxido) {
+		this.monoxido.add(monoxido);
+		Collections.sort(this.monoxido);
+		//dao.updatePatient(this);
+	}
+	
+	public double getMonoxidoMedia() {
+		Iterator<Monoxido> monoxido = this.monoxido.iterator();
+		double suma = 0;
+		while (monoxido.hasNext()){
+            suma += monoxido.next().getPpm();
+        }
+		return suma/this.monoxido.size();
 	}
 }
