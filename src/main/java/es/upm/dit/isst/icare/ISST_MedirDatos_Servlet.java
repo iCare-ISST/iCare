@@ -32,10 +32,13 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			String description ="";
 			
 			// Medidas de Tensión - Sensores Biométricos
-			Tension tension = new Tension(
-					Math.random() * (8 - 20) + 20,
-					Math.random() * (5 - 11) + 11
-			);
+			double tensionMax = Math.random() * (8 - 18) + 18;
+			double tensionMin = Math.random() * (5 - 12) + 12;
+			while ((tensionMax - tensionMin) < 3 || (tensionMax - tensionMin) > 6.5) {
+				tensionMin = Math.random() * (5 - 12) + 12;
+				tensionMax = Math.random() * (8 - 18) + 18;
+			}
+			Tension tension = new Tension(tensionMax, Math.random() * (5 - 11) + 11);
 			if (tension.getTensionMax() > 16 && tension.getTensionMin() > 9){
 				criticidad="Media";
 				description="Indicios de Hipertensión, la presión sistólica supera los 16 cm de Hg y la diástolica los 9 cm de Hg.";
@@ -49,9 +52,9 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			//Medidas de Pulsaciones - Sensores Biométricos
 			double pulsaciones_0_1 = Math.random();
 			Pulsaciones pulsaciones;
-			if (pulsaciones_0_1 < 0.5) {
+			if (pulsaciones_0_1 < 0.7) {
 				pulsaciones = new Pulsaciones(Math.random() * (60 - 100) + 100);
-			} else if (pulsaciones_0_1 < 0.8) {
+			} else if (pulsaciones_0_1 < 0.9) {
 				pulsaciones = new Pulsaciones(Math.random() * (50 - 150) + 150);
 				if (pulsaciones.getPulsaciones() < 60){
 					criticidad="Media";
