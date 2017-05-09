@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.googlecode.objectify.ObjectifyService;
+
 import es.upm.dit.isst.icare.dao.ICareDao;
 import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Patient;
@@ -20,6 +22,11 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public void init() throws ServletException {
+		ObjectifyService.register(Patient.class);
+	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -38,7 +45,7 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 				tensionMin = Math.random() * (5 - 12) + 12;
 				tensionMax = Math.random() * (8 - 18) + 18;
 			}
-			Tension tension = new Tension(tensionMax, Math.random() * (5 - 11) + 11);
+			Tension tension = new Tension(tensionMax, tensionMin);
 			if (tension.getTensionMax() > 16 && tension.getTensionMin() > 9){
 				criticidad="Media";
 				description="Indicios de Hipertensión, la presión sistólica supera los 16 cm de Hg y la diástolica los 9 cm de Hg.";
