@@ -51,7 +51,7 @@ public class ISST_iCare_Servlet extends HttpServlet {
 				"operador@gmail.com",
 				"admin@admin.com",
 				"carlosmoro95@gmail.com",
-				"arr552@gmail.com",
+				"ARR552@gmail.com",
 				"jmviceirapp@gmail.com",
 				"dibesa95@gmail.com",
 				"javieramordelacruz@gmail.com"
