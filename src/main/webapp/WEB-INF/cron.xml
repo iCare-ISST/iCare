@@ -2,7 +2,12 @@
 <cronentries>
   <cron>
 	<url>/medirDatos</url>
-	<description>Mide varios datos de los pacientes</description>
+	<description>Mide periódicamente varios datos de los pacientes</description>
 	<schedule>every day 01:00</schedule>
+  </cron>
+    <cron>
+	<url>/generarEventos</url>
+	<description>Stub que simula la llegada de eventos a la aplicación</description>
+	<schedule>every 2 hours</schedule>
   </cron>
 </cronentries>

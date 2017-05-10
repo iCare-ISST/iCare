@@ -33,7 +33,8 @@ public class Patient implements Serializable {
 	private ArrayList<Tension> tension = new ArrayList<>();
 	private ArrayList<Pulsaciones> pulsaciones = new ArrayList<>();
 	private ArrayList<Monoxido> monoxido = new ArrayList<>();
-	
+	private Boolean isAtHome; 
+
 	public Patient() {}
 
 	public Patient(String email, String patientname, String lastname, String birthdate,
@@ -48,6 +49,7 @@ public class Patient implements Serializable {
 		this.address = address;
 		this.location = location;
 		this.province = province;
+		this.isAtHome = true;
 	}
 
 	/*public Long getId() {
@@ -201,5 +203,13 @@ public class Patient implements Serializable {
             suma += monoxido.next().getPpm();
         }
 		return suma/this.monoxido.size();
+	}
+	
+	public Boolean getIsAtHome() {
+		return isAtHome;
+	}
+
+	public void setIsAtHome(Boolean isAtHome) {
+		this.isAtHome = isAtHome;
 	}
 }
