@@ -14,11 +14,11 @@
 <p>El paciente: <c:out value="${patient.patientname}"></c:out> ha enviado un aviso de criticidad <c:out value="${aviso.criticidad}"></c:out></p>
 <p>Descripción: <c:out value="${aviso.description}"></c:out> </p>
 <h2>Acciones:</h2>
-<ul style="list-style-type:disc" >
+<p><ul style="list-style-type:disc" >
 	<li>Enviar correo al cuidador</li>
 	<li>Mostrar mapa de recursos sanitarios</li>
 	<li>Mostrar mapa de recursos sociales</li>	
-</ul>
+</ul></p>
 
 <div id="contenedor">
     <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
