@@ -160,10 +160,9 @@ public class ICareDaoImpl implements ICareDao {
 	// Relatives
 
 	@Override
-	public Relative createRelative(String patientemail, String relativename, String lastname, String mobilephone,
-			String landlinephone, String address, String location, String province) {
-		
-		Relative relative = new Relative(patientemail, relativename, lastname, mobilephone, landlinephone, address, location, province);
+	public Relative createRelative(String patientemail, String relativename, String lastname, String relativeemail, String mobilephone, 
+			String landlinephone, String address, String location, String province) {		
+		Relative relative = new Relative(patientemail, relativename, lastname, relativeemail, mobilephone, landlinephone, address, location, province);
 		ofy().save().entity(relative).now();
 		return relative;
 	}

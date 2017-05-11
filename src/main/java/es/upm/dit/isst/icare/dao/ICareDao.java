@@ -37,7 +37,7 @@ public interface ICareDao {
 	public void deleteMedicalDataByEmail (String email);
 	
 	//Cuidadores
-	public Relative createRelative (String patientemail, String relativename, String lastname,
+	public Relative createRelative (String patientemail, String relativename, String lastname, String relativeemail,
 			String mobilephone, String landlinephone, String address, String location, String province);
 	public Relative readRelative (String patientemail);
 	public List<Relative> readRelatives();

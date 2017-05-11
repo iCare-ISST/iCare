@@ -29,7 +29,37 @@
                            
     <div class="content">
         <div class="content-1">
-        
+        	<form action="/sendEmail" method="post" class="mailform">
+        		<table border="0" width="35%" align="center">
+        			<tr>
+        				<td width="50%">Destinatario</td>
+        				<td><input type="text" 
+        						name="recipient"
+        						size="75" 
+        						<c:if test="${not empty relative && not empty relative.relativeemail}">
+        							value=<c:out value="${relative.relativeemail}"></c:out>
+        						</c:if>
+        						/>
+        						</td>
+        			</tr>
+        			<tr>
+        				<td>Asunto</td>
+        				<td><input type="text" 
+        						name="subject"
+        						size="75"
+        						maxLength="255"
+        						value="iCare: El paciente <c:out value="${patient.patientname} ${patient.lastname}"></c:out> ha presentado el aviso <c:out value="${aviso.description}"></c:out>"/>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td>Contenido</td>
+        				<td><textarea rows="10" cols="77" name="content"></textarea></td>
+        			</tr>
+        			<tr>
+        				<td colspan="2" align="center"><input type="submit" value="Enviar"/></td>
+        			</tr>
+        		</table>
+        	</form>
 <!--         Mostrar números de teléfono o vías de comunicación con paciente, cuidador o servicios de urgencias en función de criticidad del aviso -->
         </div>
         <div class="content-2">

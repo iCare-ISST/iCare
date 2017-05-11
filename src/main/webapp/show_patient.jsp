@@ -123,8 +123,7 @@
         // Tabla de datos: valores y etiquetas de la gráfica
         var data = google.visualization.arrayToDataTable([
             ['Label', 'Value'],
-            ['lpm', ${patient.pulsacionesMedia}]
-        ]);
+            ['lpm', ${patient.pulsacionesMedia}]]);
         var options = {
             'title': 'Pulsaciones media',
             'legend': { 'position': 'bottom' },
@@ -258,7 +257,13 @@
 	          <c:if test = "${not empty relative.relativename}">
 	          <tr><td><p1>Nombre:  </p1></td><td><p1><c:out value = "${relative.relativename}" /> </p1></td></tr></c:if>
 	          <c:if test = "${not empty relative.lastname}">
+
 	          <tr><td><p1>Apellidos:  </p1></td><td><p1><c:out value = "${relative.lastname}" /> </p1></td></tr></c:if>
+
+	          
+	          <c:if test = "${not empty relative.relativeemail}">
+	          <tr><td><p1>Email:  </p1></td><td><p1><c:out value = "${relative.relativeemail}" /> </p1></td></tr></c:if>
+
 	          <c:if test = "${not empty relative.mobilephone}">
 	          <tr><td><p1>Teléfono Móvil:  </p1></td><td><p1><c:out value = "${relative.mobilephone}" /> </p1></td></tr></c:if>
 	          <c:if test = "${not empty relative.landlinephone}">
@@ -274,9 +279,9 @@
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
             </a>
-              <form method="post" action="/borrarCuidador" accept-charset="utf-8" class="borrarC">
+              <form method="post" action="/borrarCuidador" accept-charset="utf-8">
 			  	<input type="hidden" name="email" value="${patient.email}"/>
-			  	<input type="submit" value="Borrar Datos"/>
+			  	<input type="submit" id="borrardatoscuidador" value="Borrar Datos"/>
   			  </form>
           </p>
           </c:if>
