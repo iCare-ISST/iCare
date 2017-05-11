@@ -38,7 +38,7 @@ public class Mail_Servlet extends HttpServlet {
 		
 		try {
 			Message msg = new MimeMessage(session);
-			msg.setFrom(new InternetAddress("prueba@icare-pruebas.appspotmail.com","Prueba de correo de iCare"));
+			msg.setFrom(new InternetAddress("avisos@icare-166322.appspotmail.com","Prueba de correo de iCare"));
 			String relativeEmail = req.getParameter("recipient");
 			String subject = req.getParameter("subject");
 			String text = req.getParameter("content");
