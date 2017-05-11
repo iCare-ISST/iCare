@@ -80,13 +80,14 @@ public class New_Relative_Form extends HttpServlet {
 		String patientemail = req.getParameter("patientemail");
 		String relativename = req.getParameter("relativename");
 		String lastname = req.getParameter("lastname");
+		String relativeemail = req.getParameter("relativeemail");
 		String mobilephone = req.getParameter("mobilephone");
 		String landlinephone = req.getParameter("landlinephone");
 		String address = req.getParameter("address");
 		String location = req.getParameter("location");
 		String province = req.getParameter("province");
 		
-		Relative relative = dao.createRelative(patientemail, relativename, lastname, mobilephone, landlinephone, address, location, province);
+		Relative relative = dao.createRelative(patientemail, relativename, lastname, relativeemail, mobilephone, landlinephone, address, location, province);
 		
 		Patient patient = dao.readPatient(patientemail);
 		MedicalData medicaldata = dao.readMedicalData(patientemail);

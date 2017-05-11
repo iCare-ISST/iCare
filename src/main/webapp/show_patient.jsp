@@ -259,6 +259,8 @@
 	          <tr><td><p>Nombre:  </td><td><p><c:out value = "${relative.relativename}" /> </p></td></tr></c:if>
 	          <c:if test = "${not empty relative.lastname}">
 	          <tr><td><p>Apellidos:  </td><td><p><c:out value = "${relative.lastname}" /> </p></td></tr></c:if>
+	          <c:if test = "${not empty relative.relativeemail}">
+	          <tr><td><p>Email:  </td><td><p><c:out value = "${relative.relativeemail}" /> </p></td></tr></c:if>
 	          <c:if test = "${not empty relative.mobilephone}">
 	          <tr><td><p>Teléfono Móvil:  </td><td><p><c:out value = "${relative.mobilephone}" /> </p></td></tr></c:if>
 	          <c:if test = "${not empty relative.landlinephone}">
@@ -274,9 +276,9 @@
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Editar Datos </button>
             </a>
-              <form method="post" action="/borrarCuidador" accept-charset="utf-8" class="borrarC">
+              <form method="post" action="/borrarCuidador" accept-charset="utf-8">
 			  	<input type="hidden" name="email" value="${patient.email}"/>
-			  	<input type="submit" value="Borrar Datos"/>
+			  	<input type="submit" id="borrardatoscuidador" value="Borrar Datos"/>
   			  </form>
           </p>
           </c:if>

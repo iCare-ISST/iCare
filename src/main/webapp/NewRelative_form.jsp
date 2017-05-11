@@ -20,6 +20,9 @@
 		<p><input type="text" name="lastname" id="lastname" maxLength="255"
 			size="20" required placeholder="Apellidos" 
 			<c:if test = "${not empty relative}"> value="${relative.lastname}"</c:if> /></p><br>
+		<p><input type="text" name="relativeemail" id="relativeemail" maxLength="255"
+			size="20" required placeholder="Email del cuidador"
+			<c:if test ="${not empty relative}"> value="${relative.relativeemail}"</c:if> /></p><br>
 		<p><input type="text" name="mobilephone" id="mobilephone" maxLength="255"
 			size="20" required placeholder="nº móvil" 
 			<c:if test = "${not empty relative}"> value="${relative.mobilephone}"</c:if> /></p><br>

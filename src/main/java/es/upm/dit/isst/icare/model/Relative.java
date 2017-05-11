@@ -24,10 +24,11 @@ public class Relative implements Serializable {
 	private  String address;
 	private  String location;
 	private  String province;
+	private  String relativeemail;
 	
 	public Relative() {}
 	
-	public Relative(String patientemail, String relativename, String lastname,
+	public Relative(String patientemail, String relativename, String lastname, String relativeemail,
 			String mobilephone, String landlinephone, String address, String location, String province) {
 		super();
 		this.patientemail = patientemail;
@@ -38,6 +39,7 @@ public class Relative implements Serializable {
 		this.address = address;
 		this.location = location;
 		this.province = province;
+		this.relativeemail = relativeemail;
 	}
 
 	public String getEmail() {
@@ -103,5 +105,12 @@ public class Relative implements Serializable {
 	public void setProvince(String province) {
 		this.province = province;
 	}
-
+	
+	public String getRelativeemail() {
+		return relativeemail;
+	}
+	
+	public void setRelativeemail(String relativeemail) {
+		this.relativeemail = relativeemail;
+	}
 }

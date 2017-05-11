@@ -176,13 +176,12 @@ nav a { margin: 0px 10px 0px 0px;}
 
 #contenedor input {
 	height: 32px;
-	visibility: hidden;
 }
 
-#contenedor .borrarC input {
-	height: 24px;
-	visibility: visible;
+#contenedor input[type="text"] {
+	height: 20px;	
 }
+
 #contenedor label {
 	float: left;
 	cursor: pointer;
@@ -233,6 +232,17 @@ nav a { margin: 0px 10px 0px 0px;}
 	opacity: 0;
 	transition: all linear 0.1s;
 	}
+	
+input#tab-1.tab-selector-1,
+input#tab-2.tab-selector-2 {
+	visibility:hidden;
+}
+
+.content-1 input[type="submit"] {
+	background-color: #33cc77;
+	color: #fff;
+	display: block;
+} 
 
 #contenedor input.tab-selector-1:checked ~ .content .content-1,
 #contenedor input.tab-selector-2:checked ~ .content .content-2,
@@ -245,7 +255,6 @@ nav a { margin: 0px 10px 0px 0px;}
 	-o-transition: all ease-out 0.2s 0.1s;
 	-ms-transition: all ease-out 0.2s 0.1s;
 }
-
 
 
 * ---------- LOGIN ---------- */
