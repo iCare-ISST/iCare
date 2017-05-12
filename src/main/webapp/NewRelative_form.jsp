@@ -40,9 +40,7 @@
 			<c:if test = "${not empty relative}"> value="${relative.province}"</c:if> /></p><br>
 		<p><input type="submit" value="Send" /></p><br>
 	</form>
-	<a href="/verPaciente?email=${email}"> 
-   <button type="button">Volver</button>
-</a>
+	<a href="/verPaciente?email=${email}"class="myButton"> Volver</a>
 </body>
 
 </html>

@@ -162,5 +162,6 @@
         </div>
     </div>
 </div>
+<a href="/" class="myButton">Volver</a>
 </body>
 </html>

@@ -305,11 +305,6 @@
         </div-->
     </div>
 </div>
-
-<a href="/"> 
-   <button type="button">Volver</button>
-</a>
-
 <div class="tension">
 	<h1>Tensión</h1>
 	<div id="dashboard-tension">
@@ -329,5 +324,6 @@
 	</div>
 	<div id="pulsaciones-media"></div>
 </div>
+<a href="/" class="myButton">Volver</a>
 </body>
 </html>
