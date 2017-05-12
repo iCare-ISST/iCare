@@ -110,17 +110,20 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			} else if (rnd <0.8){
 				monoxido = new Monoxido(Math.random() * (35 - 200) + 200);
 				if (monoxido.getPpm() > 120){
+					patient.setIsAtHome(true);
 					criticidad="Baja";
 					description="El nivel de monóxido de carbono empieza a ser no saludable. Entre 120 y 200 partes por millón";
 					dao.createAviso(criticidad, patientEmail, description);
 				}
 			} else if (rnd <0.9){
 				monoxido = new Monoxido(Math.random() * (200 - 400) + 400);
+				patient.setIsAtHome(true);
 				criticidad="Media";
 				description="El nivel de monóxido de carbono es elevado. Entre 200 y 400 partes por millón";
 				dao.createAviso(criticidad, patientEmail, description);
 			} else {
 				monoxido = new Monoxido(Math.random() * (400 - 2000) + 2000);
+				patient.setIsAtHome(true);
 				criticidad="Alta";
 				description="El nivel de monóxido de carbono es crítico. Por encima de 400 partes por millón";
 				dao.createAviso(criticidad, patientEmail, description);

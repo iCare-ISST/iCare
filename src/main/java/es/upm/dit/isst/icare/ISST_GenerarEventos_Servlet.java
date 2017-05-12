@@ -41,13 +41,14 @@ public class ISST_GenerarEventos_Servlet extends HttpServlet {
 			double aguacorriente= Math.random(); //probabilidad de que el agua este abierto mas de una hora >0.7.
 			double rnd3 = Math.random();
 			double acelerometro = Math.random();
-			double caidausuario = Math.random();
+			double cambioBruscoConstantes = Math.random();
 			if (rnd1 > 0.9){
 				criticidad="Alta";
 				description="El paciente ha pulsado el botón de auxilio.";
 				dao.createAviso(criticidad, patientEmail, description);
 			}
 			if(aguacorriente>0.7){ //Si lleva mas de una hora
+				patient.setIsAtHome(true);
 				criticidad="Media";
 				description="El paciente ha podido sufrir una caida en la ducha.";
 				dao.createAviso(criticidad, patientEmail, description);
@@ -57,7 +58,7 @@ public class ISST_GenerarEventos_Servlet extends HttpServlet {
 			// Evento: Acelerómetro
 			// Correlar con cambio en la tension/pulsaciones
 				
-				if( acelerometro>0.9 && caidausuario>0.9){
+				if( acelerometro>0.9 && cambioBruscoConstantes>0.9){
 					criticidad="Alta";
 					description="El paciente ha sufrido una caida y no ha podido pulsar el botón de auxilio.";
 					dao.createAviso(criticidad, patientEmail, description);
