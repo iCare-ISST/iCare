@@ -29,6 +29,12 @@
                            
     <div class="content">
         <div class="content-1">
+        <p>La acciones recomendadas para un aviso de criticidad <c:out value="${aviso.criticidad}"></c:out> son: </p>
+        <br>
+        <c:if test="${aviso.criticidad eq 'Baja'}">
+        	<p><ul style="list-style-type:disc" >
+        		<li>Enviar correo electrónico al cuidador:</li>
+        	</ul></p>
         	<form action="/sendEmail" method="post" class="mailform">
         		<table border="0" width="35%" align="center">
         			<tr>
@@ -60,6 +66,40 @@
         			</tr>
         		</table>
         	</form>
+        	<p><ul style="list-style-type:disc" >
+        		<li>Ponerse en contacto con el paciente:</li>
+        	</ul></p>
+        	<p>Nombre del paciente: <span><c:out value="${patient.patientname} "></c:out> <c:out value="${patient.lastnamename}"></c:out></span></p>
+        	<p>Teléfono Móvil: <c:out value="${patient.mobilephone}"></c:out></p>
+        	<p>Teléfono Fijo: <c:out value="${patient.landlinephone}"></c:out></p>
+        </c:if>
+        <c:if test="${aviso.criticidad eq 'Media'}">
+        	<p><ul style="list-style-type:disc" >
+        		<li>Llamar inmediatamente al cuidador:</li>
+        	</ul></p>
+        	<p>Nombre del cuidador: <span><c:out value="${relative.relativename} "> </c:out><c:out value="${relative.lastname}"></c:out></span></p>
+        	<p>Teléfono Móvil: <c:out value="${relative.mobilephone}"></c:out></p>
+        	<p>Teléfono Fijo: <c:out value="${relative.landlinephone}"></c:out></p>
+        	<p><ul style="list-style-type:disc" >
+        		<li>Ponerse en contacto con el paciente:</li>
+        	</ul></p>
+        	<p>Nombre del paciente: <span><c:out value="${patient.patientname} "> </c:out><c:out value="${patient.lastname}"></c:out></span></p>
+        	<p>Teléfono Móvil: <c:out value="${patient.mobilephone}"></c:out><p/>
+        	<p>Teléfono Fijo: <c:out value="${patient.landlinephone}"></c:out></p>
+        </c:if>
+        <c:if test="${aviso.criticidad eq 'Alta'}">
+        	<p><ul style="list-style-type:disc" >
+        		<li>Llamar inmediatamente al cuidador:</li>
+        	</ul></p>
+        	<p>Nombre del cuidador: <span><c:out value="${relative.relativename} "> </c:out><c:out value="${relative.lastname}"></c:out></span></p>
+        	<p>Teléfono Móvil: <c:out value="${relative.mobilephone}"></c:out></p>
+        	<p>Teléfono Fijo: <c:out value="${relative.landlinephone}"></c:out></p>
+        	<p><ul style="list-style-type:disc" >
+        		<li>Llamar inmediatamente a servicios de emergencias:</li>
+        	</ul><p>
+       		<p>Teléfono de Emergencias: 112</p>
+        	<p>Teléfono de Bomberos: 080 y 085</p>
+        </c:if>
 <!--         Mostrar números de teléfono o vías de comunicación con paciente, cuidador o servicios de urgencias en función de criticidad del aviso -->
         </div>
         <div class="content-2">

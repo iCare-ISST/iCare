@@ -226,6 +226,12 @@ nav a { margin: 0px 10px 0px 0px;}
 	z-index: 5;
 	border-radius: 0 5px 5px 5px;
 }
+.content p {
+	color: black;
+}
+.content ul li {
+	color: black;
+}
 
 .content div {
 	position: absolute;
