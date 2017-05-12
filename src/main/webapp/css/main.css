@@ -241,7 +241,8 @@ nav a { margin: 0px 10px 0px 0px;}
 	}
 	
 input#tab-1.tab-selector-1,
-input#tab-2.tab-selector-2 {
+input#tab-2.tab-selector-2,
+input#tab-3.tab-selector-3 {
 	visibility:hidden;
 }
 
