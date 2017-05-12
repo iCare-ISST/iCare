@@ -38,6 +38,7 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 			String criticidad = "";
 			String description ="";
 			
+		
 			// Medidas de Tensión - Sensores Biométricos
 			double tensionMax = Math.random() * (8 - 18) + 18;
 			double tensionMin = Math.random() * (5 - 12) + 12;

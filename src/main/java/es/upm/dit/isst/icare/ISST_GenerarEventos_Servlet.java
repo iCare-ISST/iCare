@@ -35,17 +35,26 @@ public class ISST_GenerarEventos_Servlet extends HttpServlet {
 			String patientEmail = patient.getEmail();
 			String criticidad = "";
 			String description ="";
-			
+			Boolean caida= false;
 			double rnd1 = Math.random();
 			double rnd2 = Math.random();
 			double rnd3 = Math.random();
-			
+			double acelerometro = Math.random();
+			double caidausuario = Math.random();
 			if (rnd1 > 0.9){
 				criticidad="Alta";
 				description="El paciente ha pulsado el botón de auxilio.";
 				dao.createAviso(criticidad, patientEmail, description);
 			}
 			if (rnd2 > 0.6){
+				
+				if(acelerometro>0.9 && caidausuario>0.9){
+					criticidad="Alta";
+					description="El paciente ha sufrido una caida y no ha podido pulsar el botón de auxilio.";
+					dao.createAviso(criticidad, patientEmail, description);
+					caida=true;
+				}
+				caida=false;
 				// Evento: Acelerómetro
 				// Correlar con cambio en la tension/pulsaciones
 			}
