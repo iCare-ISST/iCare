@@ -109,12 +109,14 @@
 		  <c:if test = "${patient.isAtHome}"> 
 		      <p>El paciente se encuentra en su domicilio: </p>
 		      <br>
-	          <iframe src="https://www.google.com/maps/d/embed?mid=1BBDjRFMQu1qSF82NLGYeLRN_ifo" width="640" height="480"></iframe>
+		      <!-- Mapa Casa Guzman -->
+	          <iframe src="https://www.google.com/maps/d/embed?mid=1sw_CKBrVC8KUPgJf0zqL6fuTqfA" width="640" height="480"></iframe>
           </c:if>
           <c:if test = "${not patient.isAtHome}">
           <p>El paciente se encuentra fuera de su domicilio, esta es su última localización: </p>
           <br>
-          <iframe src="https://www.google.com/maps/d/embed?mid=1KgP7WB9QwvujaG0NnD8KTxZZ2TU" width="640" height="480"></iframe>
+          <!-- Mapa para casa en conchaespina y esta en buitrago -->
+          <iframe src="https://www.google.com/maps/d/embed?mid=1rKljFUxGIPTV1831gg1djFpOjis" width="640" height="480"></iframe>
           </c:if>
         </div>
         <div class="content-3">
