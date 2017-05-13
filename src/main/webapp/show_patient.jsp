@@ -240,7 +240,7 @@
           </p>
           </c:if>
           <c:if test = "${empty medicaldata}">
-          <h3>Datos Médicos:</h3>
+          <p1><h3>Datos Médicos:</h3></p1>
           <p>
             <a href="/nuevosdatosmedicos?email=${patient.email}"> 
               <button type="button"> Añadir nuevos Datos Médicos </button>
@@ -286,7 +286,7 @@
           </p>
           </c:if>
           <c:if test = "${empty relative}">
-          <h3>Cuidadores:</h3>
+          <p1><h3>Cuidadores:</h3></p1>
           <p>
             <a href="/nuevocuidador?email=${patient.email}"> 
               <button type="button"> Añadir datos de cuidador </button>
@@ -305,11 +305,6 @@
         </div-->
     </div>
 </div>
-
-<a href="/"> 
-   <button type="button">Volver</button>
-</a>
-
 <div class="tension">
 	<h1>Tensión</h1>
 	<div id="dashboard-tension">
@@ -318,6 +313,7 @@
 	    <div id="filtro-tension"></div>
 	</div>
 	<div id="tension-media"></div>
+	<a href="/medirTension?patient=${patient.email}"><button>Medir tensión</button></a>
 </div>
 
 <div class="pulsaciones" >
@@ -329,5 +325,6 @@
 	</div>
 	<div id="pulsaciones-media"></div>
 </div>
+<a href="/" class="myButton">Volver</a>
 </body>
 </html>

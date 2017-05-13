@@ -45,6 +45,7 @@
 		<p><input type="submit" value="Send" /></p><br>
 	
 	</form>
+<a href="/" class="myButton">Volver</a>
 </body>
 
 </html>
