@@ -104,13 +104,29 @@
     <servlet-name>GenerarEventos</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.ISST_GenerarEventos_Servlet</servlet-class>
   </servlet>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Mail</servlet-name>
     <url-pattern>/sendEmail</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Mail</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.Mail_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MedirTension</servlet-name>
+    <url-pattern>/medirTension</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MedirTension</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_MedirTension_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MedirPulsaciones</servlet-name>
+    <url-pattern>/medirPulsaciones</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MedirPulsaciones</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_MedirPulsaciones_Servlet</servlet-class>
   </servlet>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

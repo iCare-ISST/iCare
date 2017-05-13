@@ -473,11 +473,27 @@ div#filtro-tension, div#filtro-pulsaciones {
 	height: 50px;
 }
 
+a.btn-medir {
+	float: right;
+	margin-right: 15px;
+	width: 90px;
+}
+
+a.btn-medir button {
+	padding: 7%;
+	width: 100%;
+}
+
+a.btn-medir button:hover {
+	padding: 5%;
+}
+
 * ---------- LISTA FAMILIARES --------- */
 #relativeList {
 	margin:50px auto;
 	width: 400px;
 }
+
 #relativeList h2 {
 	background-color: #0066ff;
 	-webkit-border-radius: 20px 20px 0 0;

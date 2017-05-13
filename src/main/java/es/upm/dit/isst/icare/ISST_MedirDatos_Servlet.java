@@ -15,6 +15,7 @@ import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Patient;
 import es.upm.dit.isst.icare.model.Pulsaciones;
 import es.upm.dit.isst.icare.model.Tension;
+import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Monoxido;
 
 public class ISST_MedirDatos_Servlet extends HttpServlet {
@@ -26,6 +27,7 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		ObjectifyService.register(Patient.class);
+		ObjectifyService.register(Aviso.class);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -47,11 +49,11 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 				tensionMax = Math.random() * (8 - 18) + 18;
 			}
 			Tension tension = new Tension(tensionMax, tensionMin);
-			if (tension.getTensionMax() > 16 && tension.getTensionMin() > 9){
+			if (tensionMax > 16 && tensionMin > 9){
 				criticidad="Media";
 				description="Indicios de Hipertensión, la presión sistólica supera los 16 cm de Hg y la diástolica los 9 cm de Hg.";
 				dao.createAviso(criticidad, patientEmail, description);
-			} else if (tension.getTensionMax() < 11 && tension.getTensionMin() < 7){
+			} else if (tensionMax < 11 && tensionMin < 7){
 				criticidad="Media";
 				description="Indicios de Hipotensión, la presión sistólica se encuentra por debajo de los 11 cm de Hg y la diástolica de los 7 cm de Hg.";
 				dao.createAviso(criticidad, patientEmail, description);
