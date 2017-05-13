@@ -313,7 +313,7 @@
 	    <div id="filtro-tension"></div>
 	</div>
 	<div id="tension-media"></div>
-	<a href="/medirTension?patient=${patient.email}"><button>Medir tensión</button></a>
+	<a href="/medirTension?patient=${patient.email}" class="btn-medir"><button>Medir tensión</button></a>
 </div>
 
 <div class="pulsaciones" >
@@ -324,6 +324,7 @@
 	    <div id="filtro-pulsaciones"></div>
 	</div>
 	<div id="pulsaciones-media"></div>
+	<a href="/medirPulsaciones?patient=${patient.email}" class="btn-medir"><button>Medir pulsaciones</button></a>
 </div>
 <a href="/" class="myButton">Volver</a>
 </body>
