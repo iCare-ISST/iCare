@@ -109,13 +109,20 @@
 		  <c:if test = "${patient.isAtHome}"> 
 		      <p>El paciente se encuentra en su domicilio: </p>
 		      <br>
-		      <!-- Mapa Casa Guzman -->
+		      <c:if test = "${patient.patientname eq 'Federico'}"> 
+		      <!-- Mapa Casa Nuñez de balboa, 100 -->
+		      <iframe src="https://www.google.com/maps/d/embed?mid=1DBapo2NW4_g9svDy8omxcnJ2G2Y" width="640" height="480"></iframe>
+		      
+		      </c:if>
+		      <c:if test = "${patient.patientname eq 'Pedro'}">
+		      <!-- Mapa Casa Guzman 37-->
 	          <iframe src="https://www.google.com/maps/d/embed?mid=1sw_CKBrVC8KUPgJf0zqL6fuTqfA" width="640" height="480"></iframe>
+         	  </c:if>
           </c:if>
           <c:if test = "${not patient.isAtHome}">
           <p>El paciente se encuentra fuera de su domicilio, esta es su última localización: </p>
           <br>
-          <!-- Mapa para casa en conchaespina y esta en buitrago -->
+          <!-- Mapa para casa en conchaespina 59 y esta en buitrago -->
           <iframe src="https://www.google.com/maps/d/embed?mid=1rKljFUxGIPTV1831gg1djFpOjis" width="640" height="480"></iframe>
           </c:if>
         </div>
