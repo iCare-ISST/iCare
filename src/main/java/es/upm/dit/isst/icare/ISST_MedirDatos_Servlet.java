@@ -15,6 +15,7 @@ import es.upm.dit.isst.icare.dao.ICareDaoImpl;
 import es.upm.dit.isst.icare.model.Patient;
 import es.upm.dit.isst.icare.model.Pulsaciones;
 import es.upm.dit.isst.icare.model.Tension;
+import es.upm.dit.isst.icare.model.Aviso;
 import es.upm.dit.isst.icare.model.Monoxido;
 
 public class ISST_MedirDatos_Servlet extends HttpServlet {
@@ -26,6 +27,7 @@ public class ISST_MedirDatos_Servlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		ObjectifyService.register(Patient.class);
+		ObjectifyService.register(Aviso.class);
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
