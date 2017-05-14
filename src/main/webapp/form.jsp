@@ -14,6 +14,9 @@
 <p>Por favor rellene con los datos del paciente:</p><br>
 	<form action="/nuevoPaciente" method="post" acceptcharset="utf-8">
 	
+		<c:if test = "${empty patient}">
+			<input type="hidden" name="nuevo" value="si" />
+		</c:if>
 		<p><input type="text" name="patientname" id="patientname" maxLength="255"
 			size="20" required placeholder="Nombre"
 			<c:if test = "${not empty patient}"> value="${patient.patientname}"</c:if> />
@@ -21,9 +24,16 @@
 		<p><input type="text" name="lastname" id="lastname" maxLength="255"
 			size="20" required placeholder="Apellidos"
 			<c:if test = "${not empty patient}"> value="${patient.lastname}"</c:if> /></p><br>
-		<p><input type="text" name="email" id="email" maxLength="255"
-			size="20" required placeholder="Correo Electrónico"
-			<c:if test = "${not empty patient}"> value="${patient.email}"</c:if> /></p><br>
+		<c:if test = "${empty patient}">
+			<p>
+				<input type="text" name="email" id="email" maxLength="255" size="20" required placeholder="Correo Electrónico" />
+			</p><br>
+		</c:if>
+		<c:if test = "${not empty patient}">
+			<p>
+				<input type="hidden" name="email" value="${patient.email}" />
+			</p>
+		</c:if>
 		<p><input type="text" name="birthdate" id="birthdate" maxLength="255"
 			size="20" required placeholder="Fecha de Nacimiento"
 			<c:if test = "${not empty patient}"> value="${patient.birthdate}"</c:if> /></p><br>

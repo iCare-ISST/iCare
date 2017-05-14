@@ -74,6 +74,8 @@ public class ISST_form_Servlet extends HttpServlet {
 		String urlLinktext = "Logout" ;
 		String user = req.getUserPrincipal().getName();
 		ICareDao dao = ICareDaoImpl.getInstancia();
+		String nuevo = req.getParameter("nuevo");
+		Patient patient = null;
 		
 		String email = req.getParameter("email");
 		String patientname = req.getParameter("patientname");
@@ -84,7 +86,21 @@ public class ISST_form_Servlet extends HttpServlet {
 		String address = req.getParameter("address");
 		String location = req.getParameter("location");
 		String province = req.getParameter("province");
-		Patient patient = dao.createPatient(email, patientname, lastname, birthdate, mobile, landlinephone, address, location, province);
+		if (nuevo != null) {
+			if (dao.readPatient(email) == null)
+				patient = dao.createPatient(email, patientname, lastname, birthdate, mobile, landlinephone, address, location, province);
+		} else {
+			patient = dao.readPatient(email);
+			patient.setPatientname(patientname);
+			patient.setLastname(lastname);
+			patient.setBirthdate(birthdate);
+			patient.setMobilephone(mobile);
+			patient.setLandlinephone(landlinephone);
+			patient.setAddress(address);
+			patient.setLocation(location);
+			patient.setProvince(province);
+			dao.updatePatient(patient);
+		}
 		
 		ArrayList<Patient> patients = new ArrayList<>();
 		patients.addAll(dao.readPatients());
