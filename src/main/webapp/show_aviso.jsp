@@ -72,7 +72,7 @@
 	        	<p><ul style="list-style-type:disc" >
 	        		<li>Ponerse en contacto con el paciente:</li>
 	        	</ul></p>
-	        	<p>Nombre del paciente: <span><c:out value="${patient.patientname} "></c:out> <c:out value="${patient.lastnamename}"></c:out></span></p>
+	        	<p>Nombre del paciente: <span><c:out value="${patient.patientname} "></c:out> <c:out value="${patient.lastname}"></c:out></span></p>
 	        	<p>Teléfono Móvil: <c:out value="${patient.mobilephone}"></c:out></p>
 	        	<p>Teléfono Fijo: <c:out value="${patient.landlinephone}"></c:out></p>
 	        </c:if>
