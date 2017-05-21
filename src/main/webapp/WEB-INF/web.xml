@@ -128,6 +128,14 @@
     <servlet-name>MedirPulsaciones</servlet-name>
     <servlet-class>es.upm.dit.isst.icare.ISST_MedirPulsaciones_Servlet</servlet-class>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>MedirMonoxido</servlet-name>
+    <url-pattern>/medirMonoxido</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MedirMonoxido</servlet-name>
+    <servlet-class>es.upm.dit.isst.icare.ISST_MedirMonoxido_Servlet</servlet-class>
+  </servlet>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

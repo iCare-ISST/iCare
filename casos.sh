@@ -10,7 +10,8 @@ case $1 in
             sleep 2
             curl --data "patient=fede_logo@gmail.com&pulsaciones=150" https://icareisst.appspot.com/medirPulsaciones
             echo "Enviado";;
-    "media") curl --data "patient=rosa.garciap@outlook.com&enCasa=true&grifoAbierto=true" http://localhost:8080/generarEventos
+    "media") curl --data "patient=rosa.garciap@outlook.com&enCasa=true&grifoAbierto=true" https://icareisst.appspot.com/generarEventos
              echo "Enviado";;
-    "baja");;
+    "baja") curl --data "patient=PR@upm.es&enCasa=true&monoxido=130" https://icareisst.appspot.com/medirMonoxido
+            echo "Enviado";;
 esac
