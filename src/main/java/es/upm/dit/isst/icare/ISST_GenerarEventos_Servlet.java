@@ -79,5 +79,26 @@ public class ISST_GenerarEventos_Servlet extends HttpServlet {
 			dao.updatePatient(patient);
 		}
 	}
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		ICareDao dao = ICareDaoImpl.getInstancia();
+		String patientEmail = req.getParameter("patient");
+		boolean enCasa = Boolean.parseBoolean(req.getParameter("enCasa"));
+		boolean grifoAbierto = Boolean.parseBoolean(req.getParameter("grifoAbierto"));
+		String criticidad = "";
+		String description = "";
+		
+		Patient patient = dao.readPatient(patientEmail);
+		patient.setIsAtHome(enCasa);
+		
+		if (enCasa && grifoAbierto) {
+			criticidad = "Media";
+			description = "El paciente ha podido sufrir una caida en la ducha.";
+			dao.createAviso(criticidad, patientEmail, description);
+		}
+		dao.updatePatient(patient);
+		
+	}
 }
 
